@@ -257,21 +257,22 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
 
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
+                        var S_CGT_Block_V_1   = CGT_Block_V_1.toString().replace(regex,'');
 
                         CGT_Block_SC_1 =
                             floorOrCeil(
-                                (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
-                                (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
-                                (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
-                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_1)+
-                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_1)
+                                (S_CGT_Commission_D * S_CGT_Block_V_1)+
+                                (S_CGT_Commission_G * S_CGT_Block_V_1)+
+                                (S_CGT_Commission_V * S_CGT_Block_V_1)+
+                                (S_CGT_Commission_VG * S_CGT_Block_V_1)+
+                                (S_CGT_Commission_OC * S_CGT_Block_V_1)
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
-                            (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
-                            (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
-                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_1)+
-                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_1)
+                            (S_CGT_Commission_D * S_CGT_Block_V_1)+
+                            (S_CGT_Commission_G * S_CGT_Block_V_1)+
+                            (S_CGT_Commission_V * S_CGT_Block_V_1)+
+                            (S_CGT_Commission_VG * S_CGT_Block_V_1)+
+                            (S_CGT_Commission_OC * S_CGT_Block_V_1)
                         );
                     }
                     function tactic_gross_SC_row_2(){
@@ -284,21 +285,22 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
 
                         var S_CGT_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
+                        var S_CGT_Block_V_2      = CGT_Block_V_2.toString().replace(regex,'');
 
                         CGT_Block_SC_2 =
                             floorOrCeil(
-                                (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
-                                (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
-                                (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
-                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_2)+
-                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_2)
+                                (S_CGT_Commission_D * S_CGT_Block_V_2)+
+                                (S_CGT_Commission_G * S_CGT_Block_V_2)+
+                                (S_CGT_Commission_V * S_CGT_Block_V_2)+
+                                (S_CGT_Commission_VG * S_CGT_Block_V_2)+
+                                (S_CGT_Commission_OC * S_CGT_Block_V_2)
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
-                            (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
-                            (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
-                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_2)+
-                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_2)
+                            (S_CGT_Commission_D * S_CGT_Block_V_2)+
+                            (S_CGT_Commission_G * S_CGT_Block_V_2)+
+                            (S_CGT_Commission_V * S_CGT_Block_V_2)+
+                            (S_CGT_Commission_VG * S_CGT_Block_V_2)+
+                            (S_CGT_Commission_OC * S_CGT_Block_V_2)
                         );
                     }
                     function tactic_gross_SC_row_3(){
@@ -311,21 +313,22 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
 
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
+                        var S_CGT_Block_V_3      = CGT_Block_V_3.toString().replace(regex,'');
 
                         CGT_Block_SC_3 =
                             floorOrCeil(
-                            ((S_CGT_Commission_D * S_CGT_Block_MCMC_3)+
-                                (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
-                                (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
-                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_3)+
-                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_3) )
+                            ((S_CGT_Commission_D * S_CGT_Block_V_3)+
+                                (S_CGT_Commission_G *  S_CGT_Block_V_3)+
+                                (S_CGT_Commission_V *  S_CGT_Block_V_3)+
+                                (S_CGT_Commission_VG * S_CGT_Block_V_3)+
+                                (S_CGT_Commission_OC * S_CGT_Block_V_3) )
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D *  S_CGT_Block_MCMC_3)+
-                            (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
-                            (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
-                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_3)+
-                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_3)
+                            (S_CGT_Commission_D *  S_CGT_Block_V_3)+
+                            (S_CGT_Commission_G *  S_CGT_Block_V_3)+
+                            (S_CGT_Commission_V *  S_CGT_Block_V_3)+
+                            (S_CGT_Commission_VG * S_CGT_Block_V_3)+
+                            (S_CGT_Commission_OC * S_CGT_Block_V_3)
                         );
                     }
 
@@ -440,21 +443,33 @@ function tactic_gross_margin_ott_ctv_p(){
                         var regex = /[$,\s]/g;
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
                         var S_CGT_Block_SC_1     = CGT_Block_SC_1.toString().replace(regex,'');
-                        CGT_Block_SNR_1  = floorOrCeil(S_CGT_Block_MCMC_1 - S_CGT_Block_SC_1);
+
+                        var S_CGT_Block_V1     = CGT_Block_V_1.toString().replace(regex,'');
+
+                        CGT_Block_SNR_1  = floorOrCeil(S_CGT_Block_V1 -S_CGT_Block_MCMC_1 );
+
                         return CGT_Block_SNR_1;
                     }
                     function tactic_gross_SNR_row_2(){
                         var regex = /[$,\s]/g;
-                        var S_CN_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
-                        var S_CN_Block_SC_2     = CGT_Block_SC_2.toString().replace(regex,'');
-                        CGT_Block_SNR_2  = floorOrCeil(S_CN_Block_MCMC_2 - S_CN_Block_SC_2);
+                        var S_CGT_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
+                        var S_CGT_Block_SC_2     = CGT_Block_SC_2.toString().replace(regex,'');
+
+                        var S_CGT_Block_V2       = CGT_Block_V_2.toString().replace(regex,'');
+
+                        CGT_Block_SNR_2  = floorOrCeil(S_CGT_Block_V2 -S_CGT_Block_MCMC_2 );
+
                         return CGT_Block_SNR_2;
                     }
                     function tactic_gross_SNR_row_3(){
                         var regex = /[$,\s]/g;
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
                         var S_CGT_Block_SC_3     = CGT_Block_SC_3.toString().replace(regex,'');
-                        CGT_Block_SNR_3  = floorOrCeil(CGT_Block_MCMC_3 - CGT_Block_SC_3);
+
+                        var S_CGT_Block_V3       = CGT_Block_V_3.toString().replace(regex,'');
+
+                        CGT_Block_SNR_3  = floorOrCeil(S_CGT_Block_V3 -S_CGT_Block_MCMC_3 );
+
                         return CGT_Block_SNR_3;
                     }
 

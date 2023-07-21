@@ -317,7 +317,7 @@ function tactic_net_margin_ott_ctv_p(){
                             (S_CNT_Commission_VG * S_CNT_Block_MCMC_3)+
                             (S_CNT_Commission_OC * S_CNT_Block_MCMC_3)
                         );
-                    return (
+                    return floorOrCeil(
                         (S_CNT_Commission_D *  S_CNT_Block_MCMC_3)+
                         (S_CNT_Commission_G *  S_CNT_Block_MCMC_3)+
                         (S_CNT_Commission_V *  S_CNT_Block_MCMC_3)+
@@ -453,7 +453,7 @@ function tactic_net_margin_ott_ctv_p(){
                     var regex = /[$,\s]/g;
                     var S_CNT_Block_MCMC_3   = CNT_Block_MCMC_3.toString().replace(regex,'');
                     var S_CNT_Block_SC_3     = CNT_Block_SC_3.toString().replace(regex,'');
-                    CNT_Block_SNR_3  = floorOrCeil(CNT_Block_MCMC_3 - CNT_Block_SC_3);
+                    CNT_Block_SNR_3  = floorOrCeil(S_CNT_Block_MCMC_3 - S_CNT_Block_SC_3);
                     return CNT_Block_SNR_3;
                 }
 

@@ -133,13 +133,15 @@ function gross_margin_ott_ctv_p(){
                         );
 
                         CG_Block_MCMC_1 =
+                            floorOrCeil(
                             ((( S_CG_Block_V_1 * S_CG_BW_Display        ) / S_CG_RR_Display      )* S_CG_M_Display)
                             +(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV        ) / S_CG_RR_OTT_CTV      )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_1 * S_CG_BW_Geofencing     ) / S_CG_RR_Geofencing   )* S_CG_M_Geofencing)
                             +(((S_CG_Block_V_1 * S_CG_BW_Video          ) / S_CG_RR_Video        )* S_CG_M_Video)
-                            +(((S_CG_Block_V_1 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing);
+                            +(((S_CG_Block_V_1 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing)
+                            );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CG_Block_V_1 * S_CG_BW_Display        )  / S_CG_RR_Display          )* S_CG_M_Display)
                             +(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV        )  / S_CG_RR_OTT_CTV          )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_1 * S_CG_BW_Geofencing     )  / S_CG_RR_Geofencing       )* S_CG_M_Geofencing)
@@ -169,11 +171,13 @@ function gross_margin_ott_ctv_p(){
                         //console.log((((( S_CG_Block_V_1 * S_CG_BW_Display ) / S_CG_RR_Display  )  * S_CG_M_Display)+(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV )  / S_CG_RR_OTT_CTV)  * S_CG_M_OTT_CTV)+(((S_CG_Block_V_1* S_CG_BW_Display)/ S_CG_RR_Geofencing)*S_CG_M_Geofencing)+(((S_CG_Block_V_1*S_CG_BW_Video )/S_CG_RR_Video)*S_CG_M_Video)+(((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_M_Video_Geofencing)));
 
                         CG_Block_MCMC_2 =
+                            floorOrCeil(
                             ((( S_CG_Block_V_2 * S_CG_BW_Display        ) / S_CG_RR_Display      )* S_CG_M_Display)
                             +(((S_CG_Block_V_2 * S_CG_BW_OTT_CTV        ) / S_CG_RR_OTT_CTV      )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_2 * S_CG_BW_Geofencing     ) / S_CG_RR_Geofencing   )* S_CG_M_Geofencing)
                             +(((S_CG_Block_V_2 * S_CG_BW_Video          ) / S_CG_RR_Video        )* S_CG_M_Video)
-                            +(((S_CG_Block_V_2 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing);
+                            +(((S_CG_Block_V_2 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing)
+                            );
 
                         console.log(
                             "GROSS"+
@@ -185,7 +189,7 @@ function gross_margin_ott_ctv_p(){
 
                         );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CG_Block_V_2 * S_CG_BW_Display        ) / S_CG_RR_Display     )* S_CG_M_Display)
                             +(((S_CG_Block_V_2 * S_CG_BW_OTT_CTV        ) / S_CG_RR_OTT_CTV     )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_2 * S_CG_BW_Geofencing     ) / S_CG_RR_Geofencing  )* S_CG_M_Geofencing)
@@ -224,13 +228,15 @@ function gross_margin_ott_ctv_p(){
 
                         );
                         CG_Block_MCMC_3 =
+                            floorOrCeil(
                             ((( S_CG_Block_V_3 * S_CG_BW_Display        ) / S_CG_RR_Display      )* S_CG_M_Display)
                             +(((S_CG_Block_V_3 * S_CG_BW_OTT_CTV        ) / S_CG_RR_OTT_CTV      )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_3 * S_CG_BW_Geofencing     ) / S_CG_RR_Geofencing   )* S_CG_M_Geofencing)
                             +(((S_CG_Block_V_3 * S_CG_BW_Video          ) / S_CG_RR_Video        )* S_CG_M_Video)
-                            +(((S_CG_Block_V_3 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing);
+                            +(((S_CG_Block_V_3 * S_CG_BW_Video_Geofencing)/ S_CG_RR_Video_Geofencing)* S_CG_M_Video_Geofencing)
+                            );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CG_Block_V_3 * S_CG_BW_Display        ) / S_CG_RR_Display      )* S_CG_M_Display)
                             +(((S_CG_Block_V_3 * S_CG_BW_OTT_CTV        ) / S_CG_RR_OTT_CTV      )* S_CG_M_OTT_CTV)
                             +(((S_CG_Block_V_3 * S_CG_BW_Geofencing     ) / S_CG_RR_Geofencing   )* S_CG_M_Geofencing)
@@ -249,8 +255,8 @@ function gross_margin_ott_ctv_p(){
                         console.log("SC-ROW-1 :"+CG_Block_V_1);
                         console.log("SC-ROW-1 :"+S_CG_Block_V_1);
 
-                        CG_Block_SC_1 = S_CG_Commission * S_CG_Block_V_1;
-                        return (S_CG_Commission * S_CG_Block_V_1);
+                        CG_Block_SC_1 = floorOrCeil(S_CG_Commission * S_CG_Block_V_1);
+                        return floorOrCeil(S_CG_Commission * S_CG_Block_V_1);
                     }
                     function gross_SC_row_2(){
                         var regex = /[$,\s]/g;
@@ -259,9 +265,9 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_Block_V_2  = CG_Block_V_2.toString().replace(regex,'');
                         //console.log("SC-ROW-2 :"+S_CG_Commission);
                         //console.log("SC-ROW-2 :"+CG_Block_MCMC_2);
-                        CG_Block_SC_2 = S_CG_Commission * S_CG_Block_V_2;
+                        CG_Block_SC_2 = floorOrCeil(S_CG_Commission * S_CG_Block_V_2);
 
-                        return (S_CG_Commission * S_CG_Block_V_2);
+                        return floorOrCeil(S_CG_Commission * S_CG_Block_V_2);
                     }
                     function gross_SC_row_3(){
                         var regex = /[$,\s]/g;
@@ -269,9 +275,9 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_Commission= CG_Commission.toString().replace(regex,'');
                         var S_CG_Block_V_3   = CG_Block_V_3.toString().replace(regex,'');
 
-                        CG_Block_SC_3 = S_CG_Commission * S_CG_Block_V_3;
+                        CG_Block_SC_3 = floorOrCeil(S_CG_Commission * S_CG_Block_V_3);
 
-                        return (S_CG_Commission * S_CG_Block_V_3);
+                        return floorOrCeil(S_CG_Commission * S_CG_Block_V_3);
                     }
 
                     function gross_MC_row_1(){
@@ -294,13 +300,15 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_MC_Video_Geofencing = CG_MC_Video_Geofencing.toString().replace(regex,'');
 
                         CG_Block_MC_1=
+                            floorOrCeil(
                             (((S_CG_Block_V_1*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_1*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_1*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
                             (((S_CG_Block_V_1*S_CG_BW_Video)/S_CG_RR_Video)*S_CG_MC_Video)+
-                            (((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing);
+                            (((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing)
+                            );
 
-                        return (
+                        return floorOrCeil(
                             (((S_CG_Block_V_1*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_1*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_1*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
@@ -327,14 +335,15 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_RR_Video_Geofencing = CG_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CG_MC_Video_Geofencing = CG_MC_Video_Geofencing.toString().replace(regex,'');
 
-                        CG_Block_MC_2=
+                        CG_Block_MC_2=floorOrCeil(
                             (((S_CG_Block_V_2*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_2*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_2*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
                             (((S_CG_Block_V_2*S_CG_BW_Video)/S_CG_RR_Video)*S_CG_MC_Video)+
-                            (((S_CG_Block_V_2*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing);
+                            (((S_CG_Block_V_2*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing)
+                        );
 
-                        return (
+                        return floorOrCeil(
                             (((S_CG_Block_V_2*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_2*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_2*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
@@ -361,14 +370,15 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_RR_Video_Geofencing = CG_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CG_MC_Video_Geofencing = CG_MC_Video_Geofencing.toString().replace(regex,'');
 
-                        CG_Block_MC_3=
+                        CG_Block_MC_3=floorOrCeil(
                             (((S_CG_Block_V_3*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_3*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_3*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
                             (((S_CG_Block_V_3*S_CG_BW_Video)/S_CG_RR_Video)*S_CG_MC_Video)+
-                            (((S_CG_Block_V_3*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing);
+                            (((S_CG_Block_V_3*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_MC_Video_Geofencing)
+                        );
 
-                        return (
+                        return floorOrCeil(
                             (((S_CG_Block_V_3*S_CG_BW_Display)/S_CG_RR_Display)*S_CG_MC_Display)+
                             (((S_CG_Block_V_3*S_CG_BW_OTT_CTV)/S_CG_RR_OTT_CTV)*S_CG_MC_OTT_CTV)+
                             (((S_CG_Block_V_3*S_CG_BW_Geofencing)/S_CG_RR_Geofencing)*S_CG_MC_Geofencing)+
@@ -384,7 +394,7 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_Block_MCMC_1   = CG_Block_MCMC_1.toString().replace(regex,'');
                         var S_CG_Block_SC_1     = CG_Block_SC_1.toString().replace(regex,'');
 
-                        return (S_CG_Block_MCMC_1 - S_CG_Block_SC_1);
+                        return floorOrCeil(S_CG_Block_MCMC_1 - S_CG_Block_SC_1);
                     }
                     function gross_SNR_row_2(){
                         var regex = /[$,\s]/g;
@@ -392,7 +402,7 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_Block_MCMC_2   = CG_Block_MCMC_2.toString().replace(regex,'');
                         var S_CG_Block_SC_2     = CG_Block_SC_2.toString().replace(regex,'');
 
-                        return (S_CG_Block_MCMC_2 - S_CG_Block_SC_2);
+                        return floorOrCeil(S_CG_Block_MCMC_2 - S_CG_Block_SC_2);
                     }
                     function gross_SNR_row_3(){
                         var regex = /[$,\s]/g;
@@ -400,7 +410,7 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_Block_MCMC_3   = CG_Block_MCMC_3.toString().replace(regex,'');
                         var S_CG_Block_SC_3     = CG_Block_SC_3.toString().replace(regex,'');
 
-                        return ( S_CG_Block_MCMC_3 - S_CG_Block_SC_3 );
+                        return floorOrCeil( S_CG_Block_MCMC_3 - S_CG_Block_SC_3 );
                     }
 
                     $(document).ready(function () {

@@ -134,13 +134,15 @@ function tactic_gross_margin_ott_ctv_p(){
 
 
                         CGT_Block_MCMC_1 =
+                            floorOrCeil(
                             ((( S_CGT_Block_V_1 * S_CGT_BW_Display        ) / S_CGT_RR_Display      )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_1 * S_CGT_BW_OTT_CTV        ) / S_CGT_RR_OTT_CTV      )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_1 * S_CGT_BW_Geofencing     ) / S_CGT_RR_Geofencing   )* S_CGT_M_Geofencing)
                             +(((S_CGT_Block_V_1 * S_CGT_BW_Video          ) / S_CGT_RR_Video        )* S_CGT_M_Video)
-                            +(((S_CGT_Block_V_1 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing);
+                            +(((S_CGT_Block_V_1 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing)
+                            );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CGT_Block_V_1 * S_CGT_BW_Display         ) / S_CGT_RR_Display          )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_1 * S_CGT_BW_OTT_CTV         ) / S_CGT_RR_OTT_CTV          )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_1 * S_CGT_BW_Geofencing      ) / S_CGT_RR_Geofencing       )* S_CGT_M_Geofencing)
@@ -170,11 +172,13 @@ function tactic_gross_margin_ott_ctv_p(){
                         //console.log((((( S_CGT_Block_V_1 * S_CGT_BW_Display ) / S_CGT_RR_Display  )  * S_CGT_M_Display)+(((S_CGT_Block_V_1 * S_CGT_BW_OTT_CTV )  / S_CGT_RR_OTT_CTV)  * S_CGT_M_OTT_CTV)+(((S_CGT_Block_V_1* S_CGT_BW_Display)/ S_CGT_RR_Geofencing)*S_CGT_M_Geofencing)+(((S_CGT_Block_V_1*S_CGT_BW_Video )/S_CGT_RR_Video)*S_CGT_M_Video)+(((S_CGT_Block_V_1*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_M_Video_Geofencing)));
 
                         CGT_Block_MCMC_2 =
+                            floorOrCeil(
                             ((( S_CGT_Block_V_2 * S_CGT_BW_Display        ) / S_CGT_RR_Display      )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_2 * S_CGT_BW_OTT_CTV        ) / S_CGT_RR_OTT_CTV      )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_2 * S_CGT_BW_Geofencing     ) / S_CGT_RR_Geofencing   )* S_CGT_M_Geofencing)
                             +(((S_CGT_Block_V_2 * S_CGT_BW_Video          ) / S_CGT_RR_Video        )* S_CGT_M_Video)
-                            +(((S_CGT_Block_V_2 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing);
+                            +(((S_CGT_Block_V_2 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing)
+                            );
 
 
                         console.log(
@@ -187,7 +191,7 @@ function tactic_gross_margin_ott_ctv_p(){
 
                         );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CGT_Block_V_2 * S_CGT_BW_Display        ) / S_CGT_RR_Display     )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_2 * S_CGT_BW_OTT_CTV        ) / S_CGT_RR_OTT_CTV     )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_2 * S_CGT_BW_Geofencing     ) / S_CGT_RR_Geofencing  )* S_CGT_M_Geofencing)
@@ -226,14 +230,15 @@ function tactic_gross_margin_ott_ctv_p(){
 
                         );
 
-                        CGT_Block_MCMC_3 =
+                        CGT_Block_MCMC_3 =floorOrCeil(
                             ((( S_CGT_Block_V_3 * S_CGT_BW_Display        ) / S_CGT_RR_Display      )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_3 * S_CGT_BW_OTT_CTV        ) / S_CGT_RR_OTT_CTV      )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_3 * S_CGT_BW_Geofencing     ) / S_CGT_RR_Geofencing   )* S_CGT_M_Geofencing)
                             +(((S_CGT_Block_V_3 * S_CGT_BW_Video          ) / S_CGT_RR_Video        )* S_CGT_M_Video)
-                            +(((S_CGT_Block_V_3 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing);
+                            +(((S_CGT_Block_V_3 * S_CGT_BW_Video_Geofencing)/ S_CGT_RR_Video_Geofencing)* S_CGT_M_Video_Geofencing)
+                        );
 
-                        return (
+                        return floorOrCeil(
                             ((( S_CGT_Block_V_3 * S_CGT_BW_Display        ) / S_CGT_RR_Display      )* S_CGT_M_Display)
                             +(((S_CGT_Block_V_3 * S_CGT_BW_OTT_CTV        ) / S_CGT_RR_OTT_CTV      )* S_CGT_M_OTT_CTV)
                             +(((S_CGT_Block_V_3 * S_CGT_BW_Geofencing     ) / S_CGT_RR_Geofencing   )* S_CGT_M_Geofencing)
@@ -254,14 +259,14 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
 
                         CGT_Block_SC_1 =
-                            (
+                            floorOrCeil(
                                 (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
                                 (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
                                 (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
                                 (S_CGT_Commission_VG * S_CGT_Block_MCMC_1)+
                                 (S_CGT_Commission_OC * S_CGT_Block_MCMC_1)
                             );
-                        return (
+                        return floorOrCeil(
                             (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
                             (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
                             (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
@@ -281,14 +286,14 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
 
                         CGT_Block_SC_2 =
-                            (
+                            floorOrCeil(
                                 (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
                                 (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
                                 (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
                                 (S_CGT_Commission_VG * S_CGT_Block_MCMC_2)+
                                 (S_CGT_Commission_OC * S_CGT_Block_MCMC_2)
                             );
-                        return (
+                        return floorOrCeil(
                             (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
                             (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
                             (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
@@ -308,12 +313,14 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
 
                         CGT_Block_SC_3 =
+                            floorOrCeil(
                             ((S_CGT_Commission_D * S_CGT_Block_MCMC_3)+
                                 (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
                                 (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
                                 (S_CGT_Commission_VG * S_CGT_Block_MCMC_3)+
-                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_3) );
-                        return (
+                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_3) )
+                            );
+                        return floorOrCeil(
                             (S_CGT_Commission_D *  S_CGT_Block_MCMC_3)+
                             (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
                             (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
@@ -342,13 +349,15 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
                         CGT_Block_MC_1=
+                            floorOrCeil(
                             (((S_CGT_Block_V_1*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_1*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_1*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
                             (((S_CGT_Block_V_1*S_CGT_BW_Video)/S_CGT_RR_Video)*S_CGT_MC_Video)+
-                            (((S_CGT_Block_V_1*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing);
+                            (((S_CGT_Block_V_1*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing)
+                            );
 
-                        return (
+                        return floorOrCeil(
                             (((S_CGT_Block_V_1*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_1*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_1*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
@@ -376,13 +385,14 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
                         CGT_Block_MC_2=
+                            floorOrCeil(
                             (((S_CGT_Block_V_2*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_2*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_2*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
                             (((S_CGT_Block_V_2*S_CGT_BW_Video)/S_CGT_RR_Video)*S_CN_MC_Video)+
-                            (((S_CGT_Block_V_2*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing);
+                            (((S_CGT_Block_V_2*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing));
 
-                        return (
+                        return floorOrCeil(
                             (((S_CGT_Block_V_2*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_2*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_2*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
@@ -409,14 +419,15 @@ function tactic_gross_margin_ott_ctv_p(){
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
-                        CGT_Block_MC_3=
+                        CGT_Block_MC_3=floorOrCeil(
                             (((S_CGT_Block_V_3*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_3*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_3*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
                             (((S_CGT_Block_V_3*S_CGT_BW_Video)/S_CGT_RR_Video)*S_CGT_MC_Video)+
-                            (((S_CGT_Block_V_3*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing);
+                            (((S_CGT_Block_V_3*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_MC_Video_Geofencing)
+                        );
 
-                        return (
+                        return floorOrCeil(
                             (((S_CGT_Block_V_3*S_CGT_BW_Display)/S_CGT_RR_Display)*S_CGT_MC_Display)+
                             (((S_CGT_Block_V_3*S_CGT_BW_OTT_CTV)/S_CGT_RR_OTT_CTV)*S_CGT_MC_OTT_CTV)+
                             (((S_CGT_Block_V_3*S_CGT_BW_Geofencing)/S_CGT_RR_Geofencing)*S_CGT_MC_Geofencing)+
@@ -429,21 +440,21 @@ function tactic_gross_margin_ott_ctv_p(){
                         var regex = /[$,\s]/g;
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
                         var S_CGT_Block_SC_1     = CGT_Block_SC_1.toString().replace(regex,'');
-                        CGT_Block_SNR_1  = S_CGT_Block_MCMC_1 - S_CGT_Block_SC_1
+                        CGT_Block_SNR_1  = floorOrCeil(S_CGT_Block_MCMC_1 - S_CGT_Block_SC_1);
                         return CGT_Block_SNR_1;
                     }
                     function tactic_gross_SNR_row_2(){
                         var regex = /[$,\s]/g;
                         var S_CN_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
                         var S_CN_Block_SC_2     = CGT_Block_SC_2.toString().replace(regex,'');
-                        CGT_Block_SNR_2  = S_CN_Block_MCMC_2 - S_CN_Block_SC_2
+                        CGT_Block_SNR_2  = floorOrCeil(S_CN_Block_MCMC_2 - S_CN_Block_SC_2);
                         return CGT_Block_SNR_2;
                     }
                     function tactic_gross_SNR_row_3(){
                         var regex = /[$,\s]/g;
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
                         var S_CGT_Block_SC_3     = CGT_Block_SC_3.toString().replace(regex,'');
-                        CGT_Block_SNR_3  = CGT_Block_MCMC_3 - CGT_Block_SC_3
+                        CGT_Block_SNR_3  = floorOrCeil(CGT_Block_MCMC_3 - CGT_Block_SC_3);
                         return CGT_Block_SNR_3;
                     }
 

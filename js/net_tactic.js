@@ -131,13 +131,15 @@ function tactic_net_margin_ott_ctv_p(){
 
 
                     CNT_Block_MCMC_1 =
+                        floorOrCeil(
                         ((( S_CNT_Block_V_1 * S_CNT_BW_Display        ) / S_CNT_RR_Display      )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_1 * S_CNT_BW_OTT_CTV        ) / S_CNT_RR_OTT_CTV      )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_1 * S_CNT_BW_Geofencing     ) / S_CNT_RR_Geofencing   )* S_CNT_M_Geofencing)
                         +(((S_CNT_Block_V_1 * S_CNT_BW_Video          ) / S_CNT_RR_Video        )* S_CNT_M_Video)
-                        +(((S_CNT_Block_V_1 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing);
+                        +(((S_CNT_Block_V_1 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing)
+                        );
 
-                    return (
+                    return floorOrCeil(
                         ((( S_CNT_Block_V_1 * S_CNT_BW_Display         ) / S_CNT_RR_Display          )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_1 * S_CNT_BW_OTT_CTV         ) / S_CNT_RR_OTT_CTV          )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_1 * S_CNT_BW_Geofencing      ) / S_CNT_RR_Geofencing       )* S_CNT_M_Geofencing)
@@ -167,11 +169,13 @@ function tactic_net_margin_ott_ctv_p(){
                     //console.log((((( S_CNT_Block_V_1 * S_CNT_BW_Display ) / S_CNT_RR_Display  )  * S_CNT_M_Display)+(((S_CNT_Block_V_1 * S_CNT_BW_OTT_CTV )  / S_CNT_RR_OTT_CTV)  * S_CNT_M_OTT_CTV)+(((S_CNT_Block_V_1* S_CNT_BW_Display)/ S_CNT_RR_Geofencing)*S_CNT_M_Geofencing)+(((S_CNT_Block_V_1*S_CNT_BW_Video )/S_CNT_RR_Video)*S_CNT_M_Video)+(((S_CNT_Block_V_1*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_M_Video_Geofencing)));
 
                     CNT_Block_MCMC_2 =
+                        floorOrCeil(
                         ((( S_CNT_Block_V_2 * S_CNT_BW_Display        ) / S_CNT_RR_Display      )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_2 * S_CNT_BW_OTT_CTV        ) / S_CNT_RR_OTT_CTV      )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_2 * S_CNT_BW_Geofencing     ) / S_CNT_RR_Geofencing   )* S_CNT_M_Geofencing)
                         +(((S_CNT_Block_V_2 * S_CNT_BW_Video          ) / S_CNT_RR_Video        )* S_CNT_M_Video)
-                        +(((S_CNT_Block_V_2 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing);
+                        +(((S_CNT_Block_V_2 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing)
+                        );
 
 
                     console.log(
@@ -184,7 +188,7 @@ function tactic_net_margin_ott_ctv_p(){
 
                     );
 
-                    return (
+                    return floorOrCeil(
                         ((( S_CNT_Block_V_2 * S_CNT_BW_Display        ) / S_CNT_RR_Display     )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_2 * S_CNT_BW_OTT_CTV        ) / S_CNT_RR_OTT_CTV     )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_2 * S_CNT_BW_Geofencing     ) / S_CNT_RR_Geofencing  )* S_CNT_M_Geofencing)
@@ -223,14 +227,15 @@ function tactic_net_margin_ott_ctv_p(){
 
                     );
 
-                    CNT_Block_MCMC_3 =
+                    CNT_Block_MCMC_3 =floorOrCeil(
                         ((( S_CNT_Block_V_3 * S_CNT_BW_Display        ) / S_CNT_RR_Display      )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_3 * S_CNT_BW_OTT_CTV        ) / S_CNT_RR_OTT_CTV      )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_3 * S_CNT_BW_Geofencing     ) / S_CNT_RR_Geofencing   )* S_CNT_M_Geofencing)
                         +(((S_CNT_Block_V_3 * S_CNT_BW_Video          ) / S_CNT_RR_Video        )* S_CNT_M_Video)
-                        +(((S_CNT_Block_V_3 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing);
+                        +(((S_CNT_Block_V_3 * S_CNT_BW_Video_Geofencing)/ S_CNT_RR_Video_Geofencing)* S_CNT_M_Video_Geofencing)
+                    );
 
-                    return (
+                    return floorOrCeil(
                         ((( S_CNT_Block_V_3 * S_CNT_BW_Display        ) / S_CNT_RR_Display      )* S_CNT_M_Display)
                         +(((S_CNT_Block_V_3 * S_CNT_BW_OTT_CTV        ) / S_CNT_RR_OTT_CTV      )* S_CNT_M_OTT_CTV)
                         +(((S_CNT_Block_V_3 * S_CNT_BW_Geofencing     ) / S_CNT_RR_Geofencing   )* S_CNT_M_Geofencing)
@@ -251,14 +256,14 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_Block_MCMC_1   = CNT_Block_MCMC_1.toString().replace(regex,'');
 
                     CNT_Block_SC_1 =
-                        (
+                        floorOrCeil(
                             (S_CNT_Commission_D * S_CNT_Block_MCMC_1)+
                             (S_CNT_Commission_G * S_CNT_Block_MCMC_1)+
                             (S_CNT_Commission_V * S_CNT_Block_MCMC_1)+
                             (S_CNT_Commission_VG * S_CNT_Block_MCMC_1)+
                             (S_CNT_Commission_OC * S_CNT_Block_MCMC_1)
                         );
-                    return (
+                    return floorOrCeil(
                         (S_CNT_Commission_D * S_CNT_Block_MCMC_1)+
                         (S_CNT_Commission_G * S_CNT_Block_MCMC_1)+
                         (S_CNT_Commission_V * S_CNT_Block_MCMC_1)+
@@ -278,14 +283,14 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_Block_MCMC_2   = CNT_Block_MCMC_2.toString().replace(regex,'');
 
                     CNT_Block_SC_2 =
-                        (
+                        floorOrCeil(
                             (S_CNT_Commission_D * S_CNT_Block_MCMC_2)+
                             (S_CNT_Commission_G * S_CNT_Block_MCMC_2)+
                             (S_CNT_Commission_V * S_CNT_Block_MCMC_2)+
                             (S_CNT_Commission_VG * S_CNT_Block_MCMC_2)+
                             (S_CNT_Commission_OC * S_CNT_Block_MCMC_2)
                         );
-                    return (
+                    return floorOrCeil(
                         (S_CNT_Commission_D * S_CNT_Block_MCMC_2)+
                         (S_CNT_Commission_G * S_CNT_Block_MCMC_2)+
                         (S_CNT_Commission_V * S_CNT_Block_MCMC_2)+
@@ -305,11 +310,13 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_Block_MCMC_3   = CNT_Block_MCMC_3.toString().replace(regex,'');
 
                     CNT_Block_SC_3 =
-                        ((S_CNT_Commission_D * S_CNT_Block_MCMC_3)+
-                        (S_CNT_Commission_G *  S_CNT_Block_MCMC_3)+
-                        (S_CNT_Commission_V *  S_CNT_Block_MCMC_3)+
-                        (S_CNT_Commission_VG * S_CNT_Block_MCMC_3)+
-                        (S_CNT_Commission_OC * S_CNT_Block_MCMC_3) );
+                        floorOrCeil(
+                            (S_CNT_Commission_D * S_CNT_Block_MCMC_3)+
+                            (S_CNT_Commission_G *  S_CNT_Block_MCMC_3)+
+                            (S_CNT_Commission_V *  S_CNT_Block_MCMC_3)+
+                            (S_CNT_Commission_VG * S_CNT_Block_MCMC_3)+
+                            (S_CNT_Commission_OC * S_CNT_Block_MCMC_3)
+                        );
                     return (
                         (S_CNT_Commission_D *  S_CNT_Block_MCMC_3)+
                         (S_CNT_Commission_G *  S_CNT_Block_MCMC_3)+
@@ -339,13 +346,15 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_MC_Video_Geofencing = CNT_MC_Video_Geofencing.toString().replace(regex,'');
 
                     CNT_Block_MC_1=
+                        floorOrCeil(
                         (((S_CNT_Block_V_1*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
                         (((S_CNT_Block_V_1*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
                         (((S_CNT_Block_V_1*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
                         (((S_CNT_Block_V_1*S_CNT_BW_Video)/S_CNT_RR_Video)*S_CNT_MC_Video)+
-                        (((S_CNT_Block_V_1*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing);
+                        (((S_CNT_Block_V_1*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing)
+                        );
 
-                    return (
+                    return floorOrCeil(
                         (((S_CNT_Block_V_1*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
                         (((S_CNT_Block_V_1*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
                         (((S_CNT_Block_V_1*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
@@ -373,13 +382,15 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_MC_Video_Geofencing = CNT_MC_Video_Geofencing.toString().replace(regex,'');
 
                     CNT_Block_MC_2=
+                        floorOrCeil(
                         (((S_CNT_Block_V_2*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
                         (((S_CNT_Block_V_2*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
                         (((S_CNT_Block_V_2*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
                         (((S_CNT_Block_V_2*S_CNT_BW_Video)/S_CNT_RR_Video)*S_CN_MC_Video)+
-                        (((S_CNT_Block_V_2*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing);
+                        (((S_CNT_Block_V_2*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing)
+                        );
 
-                    return (
+                    return floorOrCeil(
                         (((S_CNT_Block_V_2*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
                         (((S_CNT_Block_V_2*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
                         (((S_CNT_Block_V_2*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
@@ -407,40 +418,42 @@ function tactic_net_margin_ott_ctv_p(){
                     var S_CNT_MC_Video_Geofencing = CNT_MC_Video_Geofencing.toString().replace(regex,'');
 
                     CNT_Block_MC_3=
-                        (((S_CNT_Block_V_3*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
-                        (((S_CNT_Block_V_3*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
-                        (((S_CNT_Block_V_3*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
-                        (((S_CNT_Block_V_3*S_CNT_BW_Video)/S_CNT_RR_Video)*S_CNT_MC_Video)+
-                        (((S_CNT_Block_V_3*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing);
-
-                    return (
+                        floorOrCeil(
                         (((S_CNT_Block_V_3*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
                         (((S_CNT_Block_V_3*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
                         (((S_CNT_Block_V_3*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
                         (((S_CNT_Block_V_3*S_CNT_BW_Video)/S_CNT_RR_Video)*S_CNT_MC_Video)+
                         (((S_CNT_Block_V_3*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing)
-                    );
+                        );
+
+                    return floorOrCeil(
+                            (((S_CNT_Block_V_3*S_CNT_BW_Display)/S_CNT_RR_Display)*S_CNT_MC_Display)+
+                            (((S_CNT_Block_V_3*S_CNT_BW_OTT_CTV)/S_CNT_RR_OTT_CTV)*S_CNT_MC_OTT_CTV)+
+                            (((S_CNT_Block_V_3*S_CNT_BW_Geofencing)/S_CNT_RR_Geofencing)*S_CNT_MC_Geofencing)+
+                            (((S_CNT_Block_V_3*S_CNT_BW_Video)/S_CNT_RR_Video)*S_CNT_MC_Video)+
+                            (((S_CNT_Block_V_3*S_CNT_BW_Video_Geofencing)/S_CNT_RR_Video_Geofencing)*S_CNT_MC_Video_Geofencing)
+                        );
                 }
                 function tactic_net_SNR_row_1(){
 
                     var regex = /[$,\s]/g;
                     var S_CNT_Block_MCMC_1   = CNT_Block_MCMC_1.toString().replace(regex,'');
                     var S_CNT_Block_SC_1     = CNT_Block_SC_1.toString().replace(regex,'');
-                    CNT_Block_SNR_1  = S_CNT_Block_MCMC_1 - S_CNT_Block_SC_1
+                    CNT_Block_SNR_1  = floorOrCeil(S_CNT_Block_MCMC_1 - S_CNT_Block_SC_1);
                     return CNT_Block_SNR_1;
                 }
                 function tactic_net_SNR_row_2(){
                     var regex = /[$,\s]/g;
                     var S_CN_Block_MCMC_2   = CNT_Block_MCMC_2.toString().replace(regex,'');
                     var S_CN_Block_SC_2     = CNT_Block_SC_2.toString().replace(regex,'');
-                    CNT_Block_SNR_2  = S_CN_Block_MCMC_2 - S_CN_Block_SC_2
+                    CNT_Block_SNR_2  = floorOrCeil(S_CN_Block_MCMC_2 - S_CN_Block_SC_2);
                     return CNT_Block_SNR_2;
                 }
                 function tactic_net_SNR_row_3(){
                     var regex = /[$,\s]/g;
                     var S_CNT_Block_MCMC_3   = CNT_Block_MCMC_3.toString().replace(regex,'');
                     var S_CNT_Block_SC_3     = CNT_Block_SC_3.toString().replace(regex,'');
-                    CNT_Block_SNR_3  = CNT_Block_MCMC_3 - CNT_Block_SC_3
+                    CNT_Block_SNR_3  = floorOrCeil(CNT_Block_MCMC_3 - CNT_Block_SC_3);
                     return CNT_Block_SNR_3;
                 }
 

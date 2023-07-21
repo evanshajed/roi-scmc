@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Calculator App </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="js/chart.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.debug.js"></script>
+
+    <script src="js/exportpdf.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/currency.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/marketronCSS.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!--<script src="js/source.js"></script>-->
+
+    <script src="js/dom-to-image.min.js"></script>
+
+<!--<script src="js/variable_value.js"></script>-->
+
+
+</head>
+<body>
+
+    <div class="container" id="calc_container">
+
+        <div id="zone" style="margin: 0 0; padding:0 0;">
+
+            <div id="header_row" class="row" style="padding-top: 50px;">
+
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-md-10 col-lg-10 col-sm-12">
+                        <h4
+                            style="
+                                color: #0f488d;
+                                font-size: 32pt;
+                                font-weight: 800;
+                                line-height: 28pt;
+                                letter-spacing: .01px;">
+                            Digital Sales Commission<br>
+                            and Margin Calculator
+                        </h4>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-sm-12 d-flex justify-content-center">
+                        <!--
+                            <img class="logo" src="icon.png"/>
+                                width="310"
+                                height="72"
+                        -->
+                        <img class="logo float-md-end"
+
+                             width="155"
+                             height="36"
+
+                             src="data:image/png;base64,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"/>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin-top:20px;">
+                    <p style="color:#1f2e3e; font-weight: bold;">
+                        Digital sales commissions and margins are a hot topic for local media sales. Finding the right fit is a sometimes tricky balance to ensure salespeople remain motivated and the business yields a healthy profit. To assist the industry with this pain point, you can use the Marketron Digital Sales Commission and Margin Calculator.
+                    </p>
+                </div>
+
+                <div class="col-md-12" style="margin-top:20px;">
+                    <h4 style="
+                                color: #1f2e3e;
+                                font-size: 16pt;
+                                font-weight: bold;">
+                        Below you’ll find an interactive calculator for four scenarios:
+                    </h4>
+                </div>
+                <div class="col-md-12" style="margin-top:20px;">
+                    <div class="row">
+                        <div class="col-md-3 top-tab">
+                            <h3 class="p-3 top-button" style="background-color: #0f488d;">
+                                Commission on<br>Net
+                            </h3>
+                        </div>
+                        <div class="col-md-3 top-tab">
+                            <h3 class="p-3 top-button" style="background-color: #0896c5;">
+                                Commission on<br>Gross
+                            </h3>
+                        </div>
+                        <div class="col-md-3 top-tab">
+                            <h3 class="p-3 top-button" style="background-color: #319b31;">
+                                Commission on<br>Net by Tactic
+                            </h3>
+                        </div>
+                        <div class="col-md-3 top-tab">
+                            <h3 class="p-3 top-button" style="background-color: #7030a0;">
+                                Commission on<br>Gross by Tactic
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="top_description_row" class="row p-4"
+                 style="
+                 margin-top:20px;
+                 padding-top: 20px;
+                 font-weight: bold;
+                 font-size: 14pt;
+                 border-radius: 10px;
+                 background-color: #f7f7f7;">
+
+                <div class="col-md-12">
+                    <h3 style=  "font-size: 20pt;
+                                line-height: 20pt;
+                                font-weight: bold;">
+                        How to Use the Calculator
+                    </h3>
+                    <p style="
+                        padding-top: 20px;
+                        font-weight: bold;
+                        font-size: 14pt;">
+                        The calculators work on programmed formulas depending on the variables you input. You’ll need these numbers to get started:
+                    </p>
+                    <ul style="list-style: none; margin-left: 10px;" class="p-3">
+                        <li class="bullet-icon">Budget weighting by tactic</li>
+                        <li class="bullet-icon">Retail rate you pay by tactic</li>
+                        <li class="bullet-icon">Media costs by tactic</li>
+                        <li class="bullet-icon">Commission percentage (note in the commission by tactic calculation, you’ll need to enter it for each tactic)</li>
+                        <li class="bullet-icon">Advertiser budget/sale value</li>
+                    </ul>
+                    <p>
+                        Insert those variables and manipulate them as you like. At the bottom of the page, you can download the results as a PDF.
+                    </p>
+                </div>
+            </div>
+
+            <!-- commission on net row start -->
+            <div id="commission_on_net_row" class="row" style="margin-top:40px; font-weight: bold;">
+
+                <div class="col-md-12" style="
+                background-color: #0f488d; color: white;margin-top:20px; padding:20px; border-radius: 10px;">
+                    <h3 style="padding-bottom: 0px; margin-bottom: 0px; font-weight: bold; font-size: 18pt;">
+                        Commission on Net
+                    </h3>
+                </div>
+
+                <div class="col-md-12"
+                style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <img width="40px"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAApCAYAAABk+TodAAABwklEQVRoge2au0vDQBzHP/W5+AjVQXRQB3FQXNylbhYHBwc3cRQUoVlEHHzgWDOI4CKKCDro3sXFP8FBcHL2sQQFdfHBQSsh5M4Kd6U57gMdmrv+ft8Pae4gSaZzahcJE8AJ0CWbUGe8AIWw5F8kxWpSZC0CAymRFLQDB0CiaIPih43mMhnjU1ZYJfqeHr9fPmQDKlGrcKK24URtw4nahhO1DSdqG07UNpyobThR23CitqESzaTQVZpZJZqW+7lRpJlVoldGI5nhWlZVdQN7GXgG+lMi+QhsygZVooIt/Xn0Epb8quqpnr0IloBs3dkl8wrshSX/K2lUdUbFA6b5GgbVwQwwmVRHthiNp1BSkPPywWzSgEz03GweoxwlFU8SnQOG0utJh5cP1uMH46ItwGHtMhljx8sHXrR4fDFaBNo0dhcrYAG4/WPeILAPtGrsvQasVr5Et5dm4EHzdrIBbFc5dwE41tj7G+gJS/4Tsb9u0cCeefePuTeae2eiC1NFtBtY0dyI8tnsq2Jetvz+gW6mvXwwRuQaPTXQRDAM3Jc/KnrFamkowxkwKq5RscFeGmpSL/jijOaAN9UbHSknA4z8AHO3O+o++FHsAAAAAElFTkSuQmCC" alt="" />
+                            Display
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <img height="40px"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAA3CAYAAACVSbMgAAAEsklEQVRogc2aa4xdUxTHf3PbaVVN55ZWYtAGKRJ80JSqd0uiN0I8KxIafKAI4ojEK/0i8fjgRkS9tWk8iiJhyPnggzItQhtpVEcoOmJEVDmUdtRMr+zkf5rjuPfMXuecmfFPTu5rr7V/d5+1115739vWufAhcmoecDFwIjAHmJThZhD4FPgYeAN4J/4gCgPv3sfn4LwauAk43mDj+jlB143AF8ATuv7ydVIxdHgh0AssN4I209HAw8BX1Vr9Sl8jnzBoE+BVBQGz9CawOAqD37IaDTeyM4HPRhjU6Xxgc7VWn53VKAv2SGAjcEz5bE3VBWyo1uqntGrQCvZQ4BOgc5RAk1pbrdWbzolmsC5G1wJTRg3vv+qp1upT0+82g10NzBgDwKQmA2H6zTRsTYm+iBqJq4jmVmv1JUn7dOqKcsbpEDAA7AR2acUap1XNjdJEvW7L4XvfKAycz3+tYNfmAHWQO4CtLvXo8WdgN9AOTAMOA47SY6egLboHuJvUyG5VXvXVbtm8q2sD8L2Wz4ZG0Y3owVrxFgDzBT3R0M8fbrJHYdCIR/a0HKCfAyuB1wWZjtGGQuNrXR8Cm7TAHAfs49nXfsAVwHPxBFtsAHW3/kvgceCZFqDN1A88CyxTITNo6PNSEtlgnsHwF+BFXTuNs96FyMvAC8A2g+3J1Vp9koOdZVhSBxWbeUBjudBYBaxXOPnoABeqFRXOvnIzv9tw61upX352GGyOdbBHGAx+BN4vIeEjPz8YfB3oYKd7Nm5oRPpKgu2Tvz2e7Tsqhpy3R5NroABgUgPy5wvbXjGmkKGS1n20aAxZ+nawvxucT9EymmeNT8stSB0GX7sqmjQ+cm0PUoyXATtNuwPfTWvkGn5j6KBLqa4M2DmqG3xhf6poQ+gbO/sD56l6KgLswulcJXtf9VaUQjZ7GkwAzlAFlTd2x6v6mm/IRK7sXB/fgl5DZ4cA1+l0xQrsQGerdp5hCIGNURj8GTdeY+iwXYXP7a7AMISEu/Unye5UQ4mIdtp7dwovqXTzHSW3VTlbqWeVDtz6lQaTeXucILt0Jy4XcIcBFFVpe2F/BdbpG/tqsor2w/XNP3BnV4A7AhpMgM7SnZir2T/BCLolCoNNpPZgy42wKCRmKv+eCWzXF/9bvqdqxncKMs+EfD5+koRdqcrfcrJIYq81XYneqZH4rGhOfjR+kgRzBcUjBR3HcBVdRUG7ozDYHr9Ij+LSgs7L1i1Jf2lYV7k/9j8BfTsKg2+TbzSLzzsMNeZI6oa072awbnRvHmPQehQG36XfbDXzl+kQYyy0LQqD25r1m5WmLhgj2JanmFmwW+IDsVHUk1EY9OSBdboP+GiUWPuiMFiS1cBntVpo+WGtgBYMZ+oD6wqTs0YYdFEUBsNur3zrgHUquEdCS6MwWO3j11K0PAU8UDLsiigM7vVtbK2w7gSetjM11VvANRYDKyzaP3ndtgz1aJdsUh5Yp0XAqzlt3wNOz2OYFxYdnb9itFmjHUUuFYF1uswQw906K8itorAohh8cps0K/UxfSGXAohr41haf3W+d9a1UFiz6G8klqbPb64G7yuogzx96svQacA5wkWa9OzwpR8A/l8cIb/ec5x8AAAAASUVORK5CYII=" alt="" />
+                            Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <img width="40px"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAAvCAYAAABDq4KNAAACoUlEQVRoge2aPYjUQBTHf5u980SEUxCF4zpB0EJQVBQt1OoQG0ELG4uz0MIv0ik2giKIh1haaCHIaaOF4oKchYWiKFgoWokWcoWNayEq3G5k4A2EYZKdTSaXD+4Pw24mm+T9eG/fvJlJa3xqBtFpYA8wCvSpjwJgAXgPXOt2wp6Geg7srxFIkj4BuxTlqYYAKW0CLgUSck3SFgX1p2FQf0cKTAo9oBVrSpG0nnwuK+C5/ZECbhoJSNtyTkMG2gABHPVpgE+oyPCKiwJp2nNe7AkcfuOqYWBMtaUt+DDEd/jdSeifdri2FQPLZZdvqN/AGaNvAvgBrHWA02D9PFHkE0p56Yalfx44D+yO9aXBtfJmZN+e+ppy7qW0o3KcBpYrDItI6YM0CzwEPgMbU+AqEX7D6B9wHVgP/ALGLXBBVm+VBaX1BQiBA3LskiUHqmworafiLQywTCHoc/DNq1nL9ZkG9CpB2VR7qCO+blQVqH3AlCVRRFluVnaimJAFn6QSKsoSgmVCnQU2O5RMQ6sMqEPAQfnuUuAOLd9Qk8D3hHNbgRPyTJdBNlPo4RlqWkqe0OhfI/+bySErhsyTTt+eUlXBFeCBAO5IyGqFyjeUNv7CYkKYqnpFkUlLUHVRY6G8ro5WQO2ggd4aU0D3K2CIT80pqCfAzYYAPet2wst68D0n02lVASyv6Z7vh24nnMOoKN5Iq5W6HbPUXBqn6iOXgnY1sBdYKUvF76pONwjqJHAVWBXrU9nyGPCzYNsyS78cMgask21KZNapMuGjhBu/Bg5XjUU+57WnXsl021U7U6btZeuehroNfIwZozy2wdgoM3U3zzpCAdKbdY/jL1zZ9BbYZuk/nrK/u6iyjVODEsV24KJkvxXAN+AW8KIKQFYB/wH9RHKZIaGbrQAAAABJRU5ErkJggg==" alt="" />
+                            Video
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <img height="40px"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAA3CAYAAACVSbMgAAAD3UlEQVRogdWabYhVRRjHf7ttilrrLdc+iCUiSlIShS9sqZUheRHFTDeQWrY+6LpLWscvli8gQtaHLiX0ooErqCi+BKVyPvjF2A3UDBG1DVYyQ0RW07NliqgpzzJnOR7PnXvmvN3rHy7sPTNz5sfsMzP/Z+ZWDZ7xORFVD7wJTATGAwM0r7kFHAOOAD8AB9wCx7ZC914TgfNd4H3geYM20s8E9WkFfge+VZ8bYV9SbdDhG0AnsMkQNEhPA18AXbl84Z2wjcKEQZUCbIoJqNOPQKNjWz26SqVGdgRwImVQ0Wzgt1y+8IKukg52DHAceCZ5tkANA37N5QsvFatQDPZJ4BdgcEagXnXk8oXAOREEKzHaAdRmhne/2nP5wmP+p0Gwu4CnygDo1SDA9j/0w+bVQl8JmpTLF5p1sNsrBNTVN7l8oW9n9O5gCw0n1GZNWZJL3UpgBb5N4U+1roaVbJWLi4C+nCDwVZnsjm3dccNgiiGojOoaTdmHajR0ox9WjwBv4wmDxggvuaApc4BPgHHANWBgzJGeD2xxYetjvEinE8plzfTUiQL9okw0CYPRGWyp+5W1PBwxNIZIqNYo45yVZFJ+D5wDhhuO8rMCOypDWFE3sEoWffU9LPATAjs0RTCdJCQuq/IwwI9KzPYvD2uvugzqPlytkrkHQbcF9p8HBPZ6dYnFPW2Z7JqOTLA/ygT6HPCBwWrQXaN2mdvAQynDuapVkCMN19lOgT0rmaXax9NWVEd2CTjqeoPOlGFfc51TRG9w3LGt/1zYg0BDgnCuxHe0ALmYrksy7T6LuAP4SmW2YVWn/j1B6qficmxCJnybF/YK8DMwOWTjJuVTWwPKFgDTE8wUTju2dRJfDrbJABZlqL8EdgLn1YnKXODxhHOwre4f3hxMNoibhieLWajOsa2/8YH9D6yvMNC9LigBo7g6ex6tlnoL/bD/Al9XBif7Hds6430QFJ/LVUiUWy3+/oNgZXSXlBm04NjWX/6HxWa+bBCn0mcK1EXHtpYFFeiWqTnZ8d2joqeYOtjT7oFYhtrg2FZ7FFjUEdChjFjPOrbVrKsQZreaYXKxFkPTSjUNA9uj/GiaanBsq2R6FdYHiCNblBLsase2doWpaGJaNgKfRmcKVJtjW2vDVjZ1WB8B38Vn7NU+4D2TBlHs4EJ1/RRHsjzNMm0f1btKvrY7YtufgKlRGsYx2vNVlmAiSUxfidph3KzgLYMY3gu8GqezJFIYieHPStRpU9f0sZRUvrVcXScFaZ3prC+mJJND+RnJPOCO55lc6n2cVAdRftCj0x7gdZWSy6yXw5NkBNwFupG/gwE8S5EAAAAASUVORK5CYII=" alt="" />
+                            Video Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <img width="30px"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAwCAYAAABE1blzAAACHUlEQVRoge3aS4jNURzA8c+M1xjGI49YeBVl47FQkpismA3NQlnIUonVbDCW8kjMgpoNOywoCyWzUCJlQVmgsPdIws37TafONLd/d+69E1dzbudbt1vnd8/vf77nd+7Z/H8tUzedWIQD6MAvzUELvuDkWNzEvCYRK9Ld2sRygY4g+H4ULKRRfGhtTq8hsmDqZMHUyYKpkwVTJwumThZMnSyYOlkwdbJg6mTB1MmCqZMFUycLpk4WTJ0smDpZMHWC4IQm9hsXBMePgoU0irbQZbEDh9CO3zUeFOKvwrtvrBzh5oS2jo8xxyRMHMHc77gfKoK5sU2kGiH+FceD4FmcC7Y1Jn2O36Er42gUrMQP3Iqfe3iG13iHT1GwPfblzMQcrMA6rI+xSoQ8+/AoxsJ6q4l+Kw30/AyNQLX3b4jtsdrzi8lwNW7UbbwYSdIyZmANtmELJhfi4fQcxKnBgdJAT9WE9d6is3E9VrtcLlTlGEK3VDcu/YWcWOkrcSMXxA6sl2XxWaF7CXexpJ6E9Qh24jE2FMb7sRB78XxkHnXxBofjM44UJqyKa9pcK1Etwa24gellYw+xGrvxtgFiRcLl1Iul8fgPEtZ+eVpX365qk6sJLsfFwthpLMOdf2lQJ0+wtkI1+6d19XUOl6KaYPE224Odjbaog974Hy1nynDTxrQt3jhc7Gk8giXsx/n/aVGDB7gWi3ChNNBzpuLv8Qetylp0QAvAvwAAAABJRU5ErkJggg==" alt="" />
+                            OTT/CTV
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Budget Weighting:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_BW_Display" placeholder="" value="60%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_BW_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_BW_Video" placeholder="" value="20%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_BW_Video_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_BW_OTT_CTV" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Retail Rate:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_RR_Display" placeholder="" value="$12.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_RR_Geofencing" placeholder="" value="$15.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_RR_Video" placeholder="" value="$22.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_RR_Video_Geofencing" placeholder="" value="$26.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_RR_OTT_CTV" placeholder="" value="$33.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Media Costs:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_MC_Display" placeholder="" value="$4.25"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_MC_Geofencing" placeholder="" value="$5.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_MC_Video" placeholder="" value="$12.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_MC_Video_Geofencing" placeholder="" value="$13.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CN_MC_OTT_CTV" placeholder="" value="$17.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Margin:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_M_Display" placeholder="" value="$7.75 (65%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_M_Geofencing" placeholder="" value="$10.00 (67%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_M_Video" placeholder="" value="$9.50 (43%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_M_Video_Geofencing" placeholder="" value="$12.50 (48%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CN_M_OTT_CTV" placeholder="" value="$16.00 (48%)"/>
+                        </div>
+                    </div>
+
+                    <div class="row"
+                    style="margin-top:40px; margin-bottom: 20px;">
+                        <div class="col-sm col-md-2">
+                            Commission %:
+                        </div>
+                        <div class="col-sm col-md-10">
+                            <input type="text" class="form-control" id="CN_Commission" placeholder="" value="20%"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row"
+                         style="background-color: #0f488d; border-radius: 10px;margin-top:25px; margin-bottom: 35px;">
+
+                        <div class="col-md-12"
+                             style="margin-top:20px;">
+
+                            <div class="row"
+                            style="background-color: #0f488d;
+                            color: white;">
+                                <div class="col-md-3">
+                                    Advertiser<br>Budget/Sale Value
+                                </div>
+                                <div class="col-md-3">
+                                    Media Company<br>Margin on Campaign
+                                </div>
+                                <div class="col-md-2">
+                                    Seller<br>Commission
+                                </div>
+                                <div class="col-md-2">
+                                    Media<br>Costs
+                                </div>
+                                <div class="col-md-2">
+                                    Station Net<br>Revenue
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"
+                             style="padding-top:20px; padding-bottom: 20px;">
+
+                            <div class="row"
+                            style="background-color: #0f488d;
+                             border-radius: 10px;
+                            color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CN_Block_V_1" placeholder="" value="$10,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CN_Block_MCMC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_SC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_MC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_SNR_1" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style="background-color: #0f488d;
+                                        padding-top:5px;
+                                        border-radius: 10px;
+                                        color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CN_Block_V_2" placeholder="" value="$30,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CN_Block_MCMC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_SC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_MC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_SNR_2" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style=" background-color: #0f488d;
+                                         border-radius: 10px;
+                                         padding-top:5px;
+                                         color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CN_Block_V_3" placeholder="" value="$50,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CN_Block_MCMC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_SC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_Block_MC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CN_SNR_3" class="block_value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- commission on net row end -->
+
+            <!-- commission on gross row start -->
+            <div id="commission_on_gross_row" class="row" style="margin-top:40px; font-weight: bold;">
+
+                <div class="col-md-12" style="
+                background-color: #0896c5; color: white;margin-top:20px; padding:20px; border-radius: 10px;">
+                    <h3 style="padding-bottom: 0px; margin-bottom: 0px; font-weight: bold; font-size: 18pt;">
+                        Commission on Gross
+                    </h3>
+                </div>
+
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Display
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            OTT/CTV
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Budget Weighting:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_BW_Display" placeholder="" value="60%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_BW_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_BW_Video" placeholder="" value="20%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_BW_Video_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_BW_OTT_CTV" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Retail Rate:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_RR_Display" placeholder="" value="$12.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_RR_Geofencing" placeholder="" value="$15.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_RR_Video" placeholder="" value="$22.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_RR_Video_Geofencing" placeholder="" value="$26.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_RR_OTT_CTV" placeholder="" value="$33.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Media Costs:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_MC_Display" placeholder="" value="$4.25"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_MC_Geofencing" placeholder="" value="$5.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_MC_Video" placeholder="" value="$12.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_MC_Video_Geofencing" placeholder="" value="$13.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CG_MC_OTT_CTV" placeholder="" value="$17.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Margin:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_M_Display" placeholder="" value="$7.75 (65%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_M_Geofencing" placeholder="" value="$10.00 (67%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_M_Video" placeholder="" value="$9.50 (43%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_M_Video_Geofencing" placeholder="" value="$12.50 (48%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CG_M_OTT_CTV" placeholder="" value="$16.00 (48%)"/>
+                        </div>
+                    </div>
+
+                    <div class="row"
+                         style="margin-top:40px; margin-bottom: 20px;">
+                        <div class="col-sm col-md-2">
+                            Commission %:
+                        </div>
+                        <div class="col-sm col-md-10">
+                            <input type="text" class="form-control" id="CG_Commission" placeholder="" value="20%"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row"
+                         style="background-color: #0896c5; border-radius: 10px;margin-top:25px; margin-bottom: 35px;">
+
+                        <div class="col-md-12"
+                             style="margin-top:20px;">
+
+                            <div class="row"
+                                 style="background-color: #0896c5;
+                            color: white;">
+                                <div class="col-md-3">
+                                    Advertiser<br>Budget/Sale Value
+                                </div>
+                                <div class="col-md-3">
+                                    Media Company<br>Margin on Campaign
+                                </div>
+                                <div class="col-md-2">
+                                    Seller<br>Commission
+                                </div>
+                                <div class="col-md-2">
+                                    Media<br>Costs
+                                </div>
+                                <div class="col-md-2">
+                                    Station Net<br>Revenue
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"
+                             style="padding-top:20px; padding-bottom: 20px;">
+
+                            <div class="row"
+                                 style="background-color: #0896c5;
+                             border-radius: 10px;
+                            color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CG_Block_V_1" placeholder="" value="$10,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CG_Block_MCMC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_MC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SNR_1" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style="background-color: #0896c5;
+                                        padding-top:5px;
+                                        border-radius: 10px;
+                                        color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CG_Block_V_2" placeholder="" value="$30,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CG_Block_MCMC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_MC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SNR_2" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style=" background-color: #0896c5;
+                                         border-radius: 10px;
+                                         padding-top:5px;
+                                         color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CG_Block_V_3" placeholder="" value="$50,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CG_Block_MCMC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_MC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CG_Block_SNR_3" class="block_value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- commission on gross row end -->
+
+            <!-- commission on net by tactic row start -->
+            <div id="commission_on_net_tactic_row" class="row" style="margin-top:40px; font-weight: bold;">
+
+                <div class="col-md-12" style="
+                background-color: #319b31; color: white;margin-top:20px; padding:20px; border-radius: 10px;">
+                    <h3 style="padding-bottom: 0px; margin-bottom: 0px; font-weight: bold; font-size: 18pt;">
+                        Commission on Net by Tactic
+                    </h3>
+                </div>
+
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Display
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            OTT/CTV
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Budget Weighting:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_BW_Display" placeholder="" value="60%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_BW_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_BW_Video" placeholder="" value="20%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_BW_Video_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_BW_OTT_CTV" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Retail Rate:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_RR_Display" placeholder="" value="$12.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_RR_Geofencing" placeholder="" value="$15.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_RR_Video" placeholder="" value="$22.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_RR_Video_Geofencing" placeholder="" value="$26.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_RR_OTT_CTV" placeholder="" value="$33.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Media Costs:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_MC_Display" placeholder="" value="$4.25"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_MC_Geofencing" placeholder="" value="$5.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_MC_Video" placeholder="" value="$12.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_MC_Video_Geofencing" placeholder="" value="$13.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_MC_OTT_CTV" placeholder="" value="$17.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Margin:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_M_Display" placeholder="" value="$7.75 (65%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_M_Geofencing" placeholder="" value="$10.00 (67%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_M_Video" placeholder="" value="$9.50 (43%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_M_Video_Geofencing" placeholder="" value="$12.50 (48%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CNT_M_OTT_CTV" placeholder="" value="$16.00 (48%)"/>
+                        </div>
+                    </div>
+
+                    <div class="row"
+                         style="margin-top:40px; margin-bottom: 20px;">
+                        <div class="col-sm col-md-2">
+                            Commission %:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_Commission_D" placeholder="" value="10%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_Commission_G" placeholder="" value="15%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_Commission_V" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_Commission_VG" placeholder="" value="4%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CNT_Commission_OC" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row"
+                         style="background-color: #319b31; border-radius: 10px;margin-top:25px; margin-bottom: 35px;">
+
+                        <div class="col-md-12"
+                             style="margin-top:20px;">
+
+                            <div class="row"
+                                 style="background-color: #319b31;
+                            color: white;">
+                                <div class="col-md-3">
+                                    Advertiser<br>Budget/Sale Value
+                                </div>
+                                <div class="col-md-3">
+                                    Media Company<br>Margin on Campaign
+                                </div>
+                                <div class="col-md-2">
+                                    Seller<br>Commission
+                                </div>
+                                <div class="col-md-2">
+                                    Media<br>Costs
+                                </div>
+                                <div class="col-md-2">
+                                    Station Net<br>Revenue
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"
+                             style="padding-top:20px; padding-bottom: 20px;">
+
+                            <div class="row"
+                                 style="background-color: #319b31;
+                             border-radius: 10px;
+                            color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CNT_Block_V_1" placeholder="" value="$10,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CNT_Block_MCMC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_MC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SNR_1" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style="background-color: #319b31;
+                                        padding-top:5px;
+                                        border-radius: 10px;
+                                        color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CNT_Block_V_2" placeholder="" value="$30,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CNT_Block_MCMC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_MC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SNR_2" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style=" background-color: #319b31;
+                                         border-radius: 10px;
+                                         padding-top:5px;
+                                         color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CNT_Block_V_3" placeholder="" value="$50,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CNT_Block_MCMC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_MC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CNT_Block_SNR_3" class="block_value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- commission on net row end -->
+
+            <!-- commission on gross by tactic row start -->
+            <div id="commission_on_gross_tactic_row" class="row" style="margin-top:40px; font-weight: bold;">
+
+                <div class="col-md-12" style="
+                background-color: #7030a0; color: white;margin-top:20px; padding:20px; border-radius: 10px;">
+                    <h3 style="padding-bottom: 0px; margin-bottom: 0px; font-weight: bold; font-size: 18pt;">
+                        Commission on Gross by Tactic
+                    </h3>
+                </div>
+
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Display
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video
+                        </div>
+                        <div class="col-sm col-md-2">
+                            Video Geofencing
+                        </div>
+                        <div class="col-sm col-md-2">
+                            OTT/CTV
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Budget Weighting:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_BW_Display" placeholder="" value="60%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_BW_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_BW_Video" placeholder="" value="20%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_BW_Video_Geofencing" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_BW_OTT_CTV" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Retail Rate:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_RR_Display" placeholder="" value="$12.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_RR_Geofencing" placeholder="" value="$15.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_RR_Video" placeholder="" value="$22.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_RR_Video_Geofencing" placeholder="" value="$26.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_RR_OTT_CTV" placeholder="" value="$33.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Media Costs:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_MC_Display" placeholder="" value="$4.25"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_MC_Geofencing" placeholder="" value="$5.00"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_MC_Video" placeholder="" value="$12.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_MC_Video_Geofencing" placeholder="" value="$13.50"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_MC_OTT_CTV" placeholder="" value="$17.00"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12"
+                     style="margin-top:20px;">
+
+                    <div class="row">
+                        <div class="col-sm col-md-2">
+                            Margin:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_M_Display" placeholder="" value="$7.75 (65%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_M_Geofencing" placeholder="" value="$10.00 (67%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_M_Video" placeholder="" value="$9.50 (43%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_M_Video_Geofencing" placeholder="" value="$12.50 (48%)"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input disabled type="text" class="form-control" id="CGT_M_OTT_CTV" placeholder="" value="$16.00 (48%)"/>
+                        </div>
+                    </div>
+
+                    <div class="row"
+                         style="margin-top:40px; margin-bottom: 20px;">
+                        <div class="col-sm col-md-2">
+                            Commission %:
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_Commission_D" placeholder="" value="10%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_Commission_G" placeholder="" value="15%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_Commission_V" placeholder="" value="5%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_Commission_VG" placeholder="" value="4%"/>
+                        </div>
+                        <div class="col-sm col-md-2">
+                            <input type="text" class="form-control" id="CGT_Commission_OC" placeholder="" value="5%"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row"
+                         style="background-color: #7030a0; border-radius: 10px;margin-top:25px; margin-bottom: 35px;">
+
+                        <div class="col-md-12"
+                             style="margin-top:20px;">
+
+                            <div class="row"
+                                 style="background-color: #7030a0;
+                            color: white;">
+                                <div class="col-md-3">
+                                    Advertiser<br>Budget/Sale Value
+                                </div>
+                                <div class="col-md-3">
+                                    Media Company<br>Margin on Campaign
+                                </div>
+                                <div class="col-md-2">
+                                    Seller<br>Commission
+                                </div>
+                                <div class="col-md-2">
+                                    Media<br>Costs
+                                </div>
+                                <div class="col-md-2">
+                                    Station Net<br>Revenue
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"
+                             style="padding-top:20px; padding-bottom: 20px;">
+
+                            <div class="row"
+                                 style="background-color: #7030a0;
+                             border-radius: 10px;
+                            color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CGT_Block_V_1" placeholder="" value="$10,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CGT_Block_MCMC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_MC_1" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SNR_1" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style="background-color: #7030a0;
+                                        padding-top:5px;
+                                        border-radius: 10px;
+                                        color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CGT_Block_V_2" placeholder="" value="$30,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CGT_Block_MCMC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_MC_2" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SNR_2" class="block_value"></span>
+                                </div>
+                            </div>
+                            <div class="row"
+                                 style=" background-color: #7030a0;
+                                         border-radius: 10px;
+                                         padding-top:5px;
+                                         color: white;">
+                                <div class="col-sm col-md-3">
+                                    <input  style="width: 60%;"
+                                            type="text" class="form-control" id="CGT_Block_V_3" placeholder="" value="$50,000"/>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <span id="CGT_Block_MCMC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_MC_3" class="block_value"></span>
+                                </div>
+                                <div class="col-sm col-md-2">
+                                    <span id="CGT_Block_SNR_3" class="block_value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- commission on gross by tactic row end -->
+
+        </div>
+        <div id="zone2" style="margin: 0 0; padding:0 0;">
+
+        </div>
+    </div>
+
+    <script src="js/net.js"></script>
+    <script src="js/gross.js"></script>
+    <script src="js/net_tactic.js"></script>
+    <script src="js/gross_tactic.js"></script>
+    <script src="js/sales_margin_calc.js"></script>
+
+</body>
+
+</html>

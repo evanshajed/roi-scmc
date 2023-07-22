@@ -1,3 +1,53 @@
+function savePDF_SCMC()
+{
+    var node = document.getElementById('zone');
+
+    let doc = new jsPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        //format: [420,592],
+        pagesplit: true
+    });
+
+    domtoimage.toJpeg(node)
+        .then(function (dataUrl) {
+            var img = new Image();
+            img.src = dataUrl;
+            //document.body.appendChild(img);
+
+            //doc.addImage(img,'JPEG', 10, 0, 185, 298);
+            doc.addImage(img,'JPEG', 10, 0, 185,250);
+
+            var node2 = document.getElementById('zone2');
+            domtoimage.toJpeg(node2).then(function (dataUrl2) {
+                var img2 = new Image();
+                img2.src = dataUrl2;
+
+                doc.addPage();
+                doc.addImage(img2,'JPEG', 10, 0, 185, 250);
+
+                    var node3 = document.getElementById('zone3');
+                    domtoimage.toJpeg(node3).then(function (dataUrl3) {
+                        var img3 = new Image();
+                        img3.src = dataUrl3;
+
+                        doc.addPage();
+                        doc.addImage(img3, 'JPEG', 10, 0, 185, 120);
+
+                        doc.save("ROI-MCSC.pdf");
+
+                    });
+
+
+            });
+
+        })
+        .catch(function (error) {
+            console.error('oops, something went wrong!', error);
+        });
+}
+
 $(document).ready(function () {
 
     console.log('hellow!');

@@ -17,6 +17,11 @@
     background-color: #45b74f !important
 }
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(webfonts/fa-solid-900.ttf);
+}
+
 .top-tab{
 
 }

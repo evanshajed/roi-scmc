@@ -926,7 +926,7 @@ chart_Digital_Projected_Revenue();
     var str = $('#totalDigitalRevenue2021LARGE').val();
     //console.log(str);
     //var regex = /[$.,\s]/g;
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var stripped = str.replace(regex, '');
     Large_2021 = stripped;
     //console.log(Large_2021);
@@ -951,7 +951,7 @@ chart_Digital_Projected_Revenue();
     /* ---------------------------------------------------------------- */
     var str = $('#totalDigitalRevenue2021MID').val();
     //var regex = /[$.,\s]/g;
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var stripped = str.replace(regex, '');
     Mid_2021 = stripped;
 
@@ -977,7 +977,7 @@ chart_Digital_Projected_Revenue();
 
     var str = $('#totalDigitalRevenue2021SMALL').val();
     //var regex = /[$.,\s]/g;
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var stripped = str.replace(regex, '');
     Small_2021 = stripped;
 
@@ -1006,7 +1006,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         focus: function(){
             //console.log("On Focus");
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value :" +stripped);
 
@@ -1024,7 +1024,7 @@ chart_Digital_COMPANY_Projected_Revenue();
 
             var str = $(this).val();
             //var regex = /[$.,\s]/g;
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             Large_2021 = stripped;
             ///////////////////////////////////////////////////////////////
@@ -1056,7 +1056,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         blur: function () {
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             let dollarUS = Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -1072,7 +1072,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             //console.log("On Focus");
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value :" +stripped);
 
@@ -1093,7 +1093,7 @@ chart_Digital_COMPANY_Projected_Revenue();
 
             var str = $(this).val();
             //var regex = /[$.,\s]/g;
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             Mid_2021 = stripped;
             //////////////////////////////////////////////////////////////////////////////////
@@ -1120,7 +1120,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         },
         blur: function () {
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             let dollarUS = Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -1136,7 +1136,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             //console.log("On Focus");
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value :" +stripped);
 
@@ -1157,7 +1157,7 @@ chart_Digital_COMPANY_Projected_Revenue();
 
             var str = $(this).val();
             //var regex = /[$.,\s]/g;
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             Small_2021 = stripped;
 
@@ -1184,7 +1184,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         },
         blur: function () {
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             let dollarUS = Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -1202,7 +1202,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             //console.log("On Focus");
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value on focus :" +stripped);
 
@@ -1221,7 +1221,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             });
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             OTA_2021=stripped;
             //console.log("stripped value on key up :" +stripped);
@@ -1253,7 +1253,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         blur: function () {
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             // Format the price above to USD, INR, EUR using their locales.
             let dollarUS = Intl.NumberFormat("en-US", {
@@ -1275,7 +1275,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             //console.log("On Focus");
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value on focus :" +stripped);
 
@@ -1294,7 +1294,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             });
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             OTA_2021TV=stripped;
             //console.log("stripped value on key up :" +stripped);
@@ -1326,7 +1326,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         blur: function () {
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             // Format the price above to USD, INR, EUR using their locales.
             let dollarUS = Intl.NumberFormat("en-US", {
@@ -1349,7 +1349,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             //console.log("On Focus");
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value on focus :" +stripped);
 
@@ -1366,7 +1366,7 @@ chart_Digital_COMPANY_Projected_Revenue();
             });
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             //console.log("stripped value :" +stripped);
 
@@ -1400,7 +1400,7 @@ chart_Digital_COMPANY_Projected_Revenue();
         blur: function () {
 
             var str = $(this).val();
-            var regex = /[$,\s]/g;
+            var regex = /[$,%\s]/g;
             var stripped = str.replace(regex, '');
             // Format the price above to USD, INR, EUR using their locales.
             let dollarUS = Intl.NumberFormat("en-US", {

@@ -1,14 +1,22 @@
 
                     //  G R O S S    TACTIC
 
-CGT_BW_Display=0.60;   CGT_BW_Geofencing=0.05;  CGT_BW_Video=0.20; CGT_BW_Video_Geofencing=0.05; CGT_BW_OTT_CTV=0.10;
+                    const keywords_gross_tactic = [
+                        "CGT_BW_Display",
+                        "CGT_BW_Geofencing",
+                        "CGT_BW_Video",
+                        "CGT_BW_Video_Geofencing",
+                        "CGT_BW_OTT_CTV"
+                    ];
+
+CGT_BW_Display=60;   CGT_BW_Geofencing=5;  CGT_BW_Video=20; CGT_BW_Video_Geofencing=5; CGT_BW_OTT_CTV=10;
 CGT_RR_Display=12;     CGT_RR_Geofencing=15;    CGT_RR_Video=22;   CGT_RR_Video_Geofencing=26;   CGT_RR_OTT_CTV=33;
 CGT_MC_Display=4.25;   CGT_MC_Geofencing=5;     CGT_MC_Video=12.5; CGT_MC_Video_Geofencing=13.50;CGT_MC_OTT_CTV=17;
 CGT_M_Display=7.75;    CGT_M_Geofencing=10;     CGT_M_Video=9.50;  CGT_M_Video_Geofencing =12.50;CGT_M_OTT_CTV=16;
 
 // commission %:
 
-CGT_Commission_D=0.10;    CGT_Commission_G=0.15;    CGT_Commission_V=0.05;    CGT_Commission_VG=0.04;    CGT_Commission_OC=0.05;
+CGT_Commission_D=10;    CGT_Commission_G=15;    CGT_Commission_V=5;    CGT_Commission_VG=4;    CGT_Commission_OC=5;
 
 CGT_Block_V_1=10000; let CGT_Block_MCMC_1=0;  let CGT_Block_SC_1=0;    let CGT_Block_MC_1=0;    let CGT_Block_SNR_1=0;
 CGT_Block_V_2=30000; let CGT_Block_MCMC_2=0;  let CGT_Block_SC_2=0;    let CGT_Block_MC_2=0;    let CGT_Block_SNR_2=0;
@@ -18,14 +26,14 @@ CGT_Block_V_3=50000; let CGT_Block_MCMC_3=0;  let CGT_Block_SC_3=0;    let CGT_B
 ///////////////////////////////////////////////////////////////////////////////////
 function tactic_gross_margin_display(){
 
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var CGT_RR_Display_stripped = CGT_RR_Display.replace(regex, '');
     var CGT_MC_Display_stripped = CGT_MC_Display.replace(regex, '');
     //console.log (CN_RR_Display_stripped - CN_MC_Display_stripped);
     return (CGT_RR_Display_stripped - CGT_MC_Display_stripped).toFixed(2);
 }
 function tactic_gross_margin_display_p(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var margin_percentage = tactic_gross_margin_display() / CGT_RR_Display.replace(regex,'');
 
     margin_percentage = margin_percentage.toFixed(2);
@@ -36,14 +44,14 @@ function tactic_gross_margin_display_p(){
 }
 ///////////////////////////////////////////////////////////////////////////////////
 function tactic_gross_margin_geofencing(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var CGT_RR_Geofencing_stripped = CGT_RR_Geofencing.replace(regex,'');
     var CGT_MC_Geofencing_stripped = CGT_MC_Geofencing.replace(regex,'');
 
     return (CGT_RR_Geofencing_stripped - CGT_MC_Geofencing_stripped);
 }
 function tactic_gross_margin_geofencing_p(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var margin_percentage = tactic_gross_margin_geofencing() / CGT_RR_Geofencing.replace(regex,'');
 
     margin_percentage = margin_percentage.toFixed(2);
@@ -54,14 +62,14 @@ function tactic_gross_margin_geofencing_p(){
 }
 ////////////////////////////////////////////////////////////////////////////////////
 function tactic_gross_margin_video(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var CGT_RR_Video_stripped = CGT_RR_Video.replace(regex,'');
     var CGT_MC_Video_stripped = CGT_MC_Video.replace(regex,'');
 
     return (CGT_RR_Video_stripped - CGT_MC_Video_stripped);
 }
 function tactic_gross_margin_video_p(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var margin_percentage = tactic_gross_margin_video() / CGT_RR_Video.replace(regex,'');
     margin_percentage = margin_percentage.toFixed(2);
     var percent = margin_percentage*100;
@@ -69,13 +77,13 @@ function tactic_gross_margin_video_p(){
 }
 ////////////////////////////////////////////////////////////////////////////////////
 function tactic_gross_margin_video_geofencing(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var CGT_RR_Video_Geofencing_stripped = CGT_RR_Video_Geofencing.replace(regex,'');
     var CGT_MC_Video_Geofencing_stripped = CGT_MC_Video_Geofencing.replace(regex,'');
     return (CGT_RR_Video_Geofencing_stripped - CGT_MC_Video_Geofencing_stripped);
 }
 function tactic_gross_margin_video_geofencing_p(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var margin_percentage = tactic_gross_margin_video_geofencing() / CGT_RR_Video_Geofencing.replace(regex,'');
     margin_percentage = margin_percentage.toFixed(2);
     var percent = margin_percentage*100;
@@ -84,13 +92,13 @@ function tactic_gross_margin_video_geofencing_p(){
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function tactic_gross_margin_ott_ctv(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var CGT_RR_OTT_CTV_stripped = CGT_RR_OTT_CTV.replace(regex,'');
     var CGT_MC_OTT_CTV_stripped = CGT_MC_OTT_CTV.replace(regex,'');
     return (CGT_RR_OTT_CTV_stripped - CGT_MC_OTT_CTV_stripped);
 }
 function tactic_gross_margin_ott_ctv_p(){
-    var regex = /[$,\s]/g;
+    var regex = /[$,%\s]/g;
     var margin_percentage = tactic_gross_margin_ott_ctv() / CGT_RR_OTT_CTV.replace(regex,'');
     margin_percentage = margin_percentage.toFixed(2);
     var percent = margin_percentage*100;
@@ -101,21 +109,27 @@ function tactic_gross_margin_ott_ctv_p(){
 
 
                     function tactic_gross_MCMC_row_1(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_1        = CGT_Block_V_1.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
+
                         var S_CGT_RR_Display        = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_M_Display         = CGT_M_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV        = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_M_OTT_CTV         = CGT_M_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_RR_Geofencing     = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Geofencing      = CGT_M_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video          = CGT_RR_Video.toString().replace(regex,'');
                         var S_CGT_M_Video            = CGT_M_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Video_Geofencing  = CGT_M_Video_Geofencing.toString().replace(regex,'');
 
@@ -151,21 +165,26 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_MCMC_row_2(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_2         = CGT_Block_V_2.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing     = CGT_BW_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
                         var S_CGT_RR_Display        = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_M_Display         = CGT_M_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV        = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_M_OTT_CTV         = CGT_M_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_RR_Geofencing     = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Geofencing      = CGT_M_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video          = CGT_RR_Video.toString().replace(regex,'');
                         var S_CGT_M_Video           = CGT_M_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Video_Geofencing  = CGT_M_Video_Geofencing.toString().replace(regex,'');
 
@@ -200,21 +219,26 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_MCMC_row_3(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_3         = CGT_Block_V_3.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing     = CGT_BW_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display       = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video         = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing= CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV         = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
                         var S_CGT_RR_Display        = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_M_Display         = CGT_M_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV        = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_M_OTT_CTV         = CGT_M_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_RR_Geofencing     = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Geofencing      = CGT_M_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video          = CGT_RR_Video.toString().replace(regex,'');
                         var S_CGT_M_Video           = CGT_M_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_M_Video_Geofencing  = CGT_M_Video_Geofencing.toString().replace(regex,'');
 
@@ -248,7 +272,7 @@ function tactic_gross_margin_ott_ctv_p(){
                     }
 
                     function tactic_gross_SC_row_1(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
 
                         var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
                         var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
@@ -276,7 +300,7 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_SC_row_2(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
 
                         var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
                         var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
@@ -304,7 +328,7 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_SC_row_3(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
 
                         var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
                         var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
@@ -333,21 +357,27 @@ function tactic_gross_margin_ott_ctv_p(){
                     }
 
                     function tactic_gross_MC_row_1(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_1  = CGT_Block_V_1.toString().replace(regex,'');
-                        var S_CGT_BW_Display = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
                         var S_CGT_RR_Display = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_MC_Display = CGT_MC_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_MC_OTT_CTV = CGT_MC_OTT_CTV.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing = CGT_BW_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Geofencing = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Geofencing = CGT_MC_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video = CGT_RR_Video.toString().replace(regex,'');
                         var S_CGT_MC_Video = CGT_MC_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
@@ -369,21 +399,27 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_MC_row_2(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_2  = CGT_Block_V_2.toString().replace(regex,'');
-                        var S_CGT_BW_Display = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
                         var S_CGT_RR_Display = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_MC_Display = CGT_MC_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_MC_OTT_CTV = CGT_MC_OTT_CTV.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing = CGT_BW_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Geofencing = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Geofencing = CGT_MC_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video = CGT_RR_Video.toString().replace(regex,'');
                         var S_CN_MC_Video = CGT_MC_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
@@ -404,21 +440,27 @@ function tactic_gross_margin_ott_ctv_p(){
                         );
                     }
                     function tactic_gross_MC_row_3(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_V_3  = CGT_Block_V_3.toString().replace(regex,'');
-                        var S_CGT_BW_Display = CGT_BW_Display.toString().replace(regex,'');
+
+                        var S_CGT_BW_Display        = CGT_BW_Display.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Geofencing    = CGT_BW_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video          = CGT_BW_Video.toString().replace(regex,'')/100;
+                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'')/100;
+                        var S_CGT_BW_OTT_CTV        = CGT_BW_OTT_CTV.toString().replace(regex,'')/100;
+
                         var S_CGT_RR_Display = CGT_RR_Display.toString().replace(regex,'');
                         var S_CGT_MC_Display = CGT_MC_Display.toString().replace(regex,'');
-                        var S_CGT_BW_OTT_CTV = CGT_BW_OTT_CTV.toString().replace(regex,'');
+
                         var S_CGT_RR_OTT_CTV = CGT_RR_OTT_CTV.toString().replace(regex,'');
                         var S_CGT_MC_OTT_CTV = CGT_MC_OTT_CTV.toString().replace(regex,'');
-                        var S_CGT_BW_Geofencing = CGT_BW_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Geofencing = CGT_RR_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Geofencing = CGT_MC_Geofencing.toString().replace(regex,'');
-                        var S_CGT_BW_Video = CGT_BW_Video.toString().replace(regex,'');
+
                         var S_CGT_RR_Video = CGT_RR_Video.toString().replace(regex,'');
                         var S_CGT_MC_Video = CGT_MC_Video.toString().replace(regex,'');
-                        var S_CGT_BW_Video_Geofencing = CGT_BW_Video_Geofencing.toString().replace(regex,'');
+
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
                         var S_CGT_MC_Video_Geofencing = CGT_MC_Video_Geofencing.toString().replace(regex,'');
 
@@ -440,7 +482,7 @@ function tactic_gross_margin_ott_ctv_p(){
                     }
                     function tactic_gross_SNR_row_1(){
 
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
                         var S_CGT_Block_SC_1     = CGT_Block_SC_1.toString().replace(regex,'');
 
@@ -451,7 +493,7 @@ function tactic_gross_margin_ott_ctv_p(){
                         return CGT_Block_SNR_1;
                     }
                     function tactic_gross_SNR_row_2(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
                         var S_CGT_Block_SC_2     = CGT_Block_SC_2.toString().replace(regex,'');
 
@@ -462,7 +504,7 @@ function tactic_gross_margin_ott_ctv_p(){
                         return CGT_Block_SNR_2;
                     }
                     function tactic_gross_SNR_row_3(){
-                        var regex = /[$,\s]/g;
+                        var regex = /[$,%\s]/g;
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
                         var S_CGT_Block_SC_3     = CGT_Block_SC_3.toString().replace(regex,'');
 
@@ -476,6 +518,13 @@ function tactic_gross_margin_ott_ctv_p(){
                     $(document).ready(function () {
 
                         var GROSS_TACTIC_MARGIN_elementMapping={
+
+                            CGT_BW_Display: "CGT_BW_Display",
+                            CGT_BW_Geofencing : "CGT_BW_Geofencing",
+                            CGT_BW_Video:"CGT_BW_Video",
+                            CGT_BW_Video_Geofencing:"CGT_BW_Video_Geofencing",
+                            CGT_BW_OTT_CTV:"CGT_BW_OTT_CTV",
+
                             CGT_RR_Display: "CGT_RR_Display",
                             CGT_RR_Geofencing: "CGT_RR_Geofencing",
                             CGT_RR_Video: "CGT_RR_Video",
@@ -551,8 +600,29 @@ function tactic_gross_margin_ott_ctv_p(){
                             }
                             */
 
+                            if(current_id == "CGT_BW_Display" || current_id == "CGT_BW_Geofencing" ||
+                                current_id == "CGT_BW_Video" || current_id == "CGT_BW_Video_Geofencing" || current_id ==  "CGT_BW_OTT_CTV"){
+// get NET - Display - Margin and Margin Percentage
+                                //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));
+                                $("#CGT_Block_MCMC_1").text("$" + tactic_gross_MCMC_row_1());
+                                $("#CGT_Block_MC_1").text("$" + tactic_gross_MC_row_1().toFixed(2));
+                                $("#CGT_Block_SC_1").text("$" + tactic_gross_SC_row_1().toFixed(2));
+                                $("#CGT_Block_SNR_1").text("$" + tactic_gross_SNR_row_1().toFixed(2));
+
+                                $("#CGT_Block_MCMC_2").text("$" + tactic_gross_MCMC_row_2().toFixed(2));
+                                $("#CGT_Block_MC_2").text("$" + tactic_gross_MC_row_2().toFixed(2));
+                                $("#CGT_Block_SC_2").text("$" + tactic_gross_SC_row_2().toFixed(2));
+                                $("#CGT_Block_SNR_2").text("$" + tactic_gross_SNR_row_2().toFixed(2));
+
+                                $("#CGT_Block_MCMC_3").text("$" + tactic_gross_MCMC_row_3().toFixed(2));
+                                $("#CGT_Block_MC_3").text("$" + tactic_gross_MC_row_3().toFixed(2));
+                                $("#CGT_Block_SC_3").text("$" + tactic_gross_SC_row_3().toFixed(2));
+                                $("#CGT_Block_SNR_3").text("$" + tactic_gross_SNR_row_3().toFixed(2));
+                            }
 
                         }
+
+
                         function GROSS_TACTIC_MARGIN_updateVariables_blur() {
 
                             console.log("Current ID after Blur :" + $(this).attr("id"));
@@ -565,8 +635,16 @@ function tactic_gross_margin_ott_ctv_p(){
 
                                 var inputValue = $("#" + elementID).val();
                                 var parsedValue = parseFloat(inputValue); // Parse the input value to a floating-point number
-                                if (!isNaN(parsedValue)) {
-                                    $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+                                if (!isNaN(parsedValue))
+                                {
+                                    if (keywords_gross_tactic.includes(current_id))
+                                    {
+                                        console.log("got a matched value");
+                                        $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
+                                    }else
+                                    {
+                                        $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+                                    }
                                 }
 
                             }

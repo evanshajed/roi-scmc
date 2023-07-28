@@ -33,6 +33,18 @@
 
 }
 
+.inline-placeholder {
+    display: none; /* Start by hiding the class */
+
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .inline-placeholder {
+        font-size: 10px;
+        display: block; /* Show the class on mobile devices */
+    }
+}
 
 /* Default styles for the element */
 .icon-handle {

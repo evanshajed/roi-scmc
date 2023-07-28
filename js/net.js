@@ -5,7 +5,8 @@
                            "CN_BW_Geofencing",
                            "CN_BW_Video",
                            "CN_BW_Video_Geofencing",
-                           "CN_BW_OTT_CTV"
+                           "CN_BW_OTT_CTV",
+                           "CN_Commission"
                        ];
 
                        function floorOrCeil(value) {
@@ -26,7 +27,7 @@ CN_M_Display=7.75;  CN_M_Geofencing=10;     CN_M_Video=9.50;  CN_M_Video_Geofenc
 CN_M_P_Display=0.65;CN_M_P_Geofencing=0.67; CN_M_P_Video=0.43;CN_M_P_Video_Geofencing=0.48; CN_M_P_OTT_CTV=0.48;
 
 //commission %:
-CN_Commission=0.20;
+CN_Commission=20;
 
 CN_Block_V_1=10000; let CN_Block_MCMC_1=0; let CN_Block_SC_1=0; let CN_Block_MC_1=0; let CN_SNR_1=0;
 CN_Block_V_2=30000; let CN_Block_MCMC_2=0; let CN_Block_SC_2=0; let CN_Block_MC_2=0; let CN_SNR_2=0;
@@ -296,7 +297,7 @@ function net_MCMC_row_3(){
 function net_SC_row_1(){
     //var regex = /[$,%\s]/g;
     var regex = /[$,%\s]/g;
-    var S_CN_Commission    = CN_Commission.toString().replace(regex,'');
+    var S_CN_Commission    = CN_Commission.toString().replace(regex,'') / 100;
     var S_CN_Block_MCMC_1  = CN_Block_MCMC_1.toString().replace(regex,'');
     //console.log("SC-ROW-1 :"+S_CN_Commission);
     //console.log("SC-ROW-1 :"+CN_Block_MCMC_1);
@@ -307,7 +308,7 @@ function net_SC_row_1(){
 function net_SC_row_2(){
     //var regex = /[$,%\s]/g;
     var regex = /[$,%\s]/g;
-    var S_CN_Commission    = CN_Commission.toString().replace(regex,'');
+    var S_CN_Commission    = CN_Commission.toString().replace(regex,'') / 100;
     var S_CN_Block_MCMC_2  = CN_Block_MCMC_2.toString().replace(regex,'');
     //console.log("SC-ROW-2 :"+S_CN_Commission);
     //console.log("SC-ROW-2 :"+CN_Block_MCMC_2);
@@ -317,7 +318,7 @@ function net_SC_row_2(){
 function net_SC_row_3(){
     //var regex = /[$,%\s]/g;
     var regex = /[$,%\s]/g;
-    var S_CN_Commission    = CN_Commission.toString().replace(regex,'');
+    var S_CN_Commission    = CN_Commission.toString().replace(regex,'') / 100;
     var S_CN_Block_MCMC_3  = CN_Block_MCMC_3.toString().replace(regex,'');
     CN_Block_SC_3 = floorOrCeil(S_CN_Commission * S_CN_Block_MCMC_3);
     return floorOrCeil(S_CN_Commission * S_CN_Block_MCMC_3);
@@ -492,7 +493,8 @@ $(document).ready(function () {
         CN_MC_Geofencing:"CN_MC_Geofencing",
         CN_MC_Video:"CN_MC_Video",
         CN_MC_Video_Geofencing:"CN_MC_Video_Geofencing",
-        CN_MC_OTT_CTV:"CN_MC_OTT_CTV"
+        CN_MC_OTT_CTV:"CN_MC_OTT_CTV",
+        CN_Commission:"CN_Commission"
     }
     var NET_ABSV_elementMapping={
         CN_Block_V_1: "CN_Block_V_1",
@@ -553,10 +555,10 @@ $(document).ready(function () {
         /*
         for (let i = 0; i < 5; i++) {
             var result = Commission_Net_Margin(Net_Retail_Rate_Array, Net_Media_Cost_Array, i);
-            console.log(`Result ${i + 1}:`, result);
+            console.log(`Result ${i + 1}:`, result);,
         }
         */
-        if(current_id == "CN_BW_Display" || current_id == "CN_BW_Geofencing" ||
+        if( current_id="CN_Commission" || current_id == "CN_BW_Display" || current_id == "CN_BW_Geofencing" ||
             current_id == "CN_BW_Video" || current_id == "CN_BW_Video_Geofencing" || current_id ==  "CN_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
             //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));

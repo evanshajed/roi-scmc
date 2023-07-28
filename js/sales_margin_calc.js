@@ -1,3 +1,9 @@
+function updatePlaceholder(input) {
+    const placeholder = input.parentElement.querySelector(".placeholder");
+    placeholder.style.visibility = input.value ? "hidden" : "visible";
+}
+
+
 function savePDF_SCMC()
 {
     var node = document.getElementById('zone');

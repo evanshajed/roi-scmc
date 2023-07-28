@@ -1,3 +1,79 @@
+@media (min-width: 768px) {
+    #heading {
+        order: 1; /* Display heading first */
+    }
+
+    #image {
+        order: 2; /* Display image second */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    #heading {
+        order: 2; /* Display heading second */
+    }
+
+    #image {
+        order: 1; /* Display image first */
+    }
+
+    #scmc_head{
+        font-size: 20px !important;
+        text-align: center;
+    }
+
+    #top_description_row{
+        padding: 0.5rem !important;
+    }
+    #usage_id{
+        padding:0px !important;
+    }
+
+
+}
+
+
+/* Default styles for the element */
+.icon-handle {
+    display: none; /* Start by hiding the element */
+}
+
+/* Media query for larger devices: desktop, laptop, and tablet */
+@media (min-width: 768px) {
+    .icon-handle {
+        display: inline-block; /* Show the element on larger devices */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .icon-handle {
+        display: none; /* Hide the element on mobile devices */
+    }
+}
+
+.input-container {
+    position: relative;
+}
+
+.custom-input {
+    /* Style your input field as needed */
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.placeholder {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    left: 12px; /* Adjust the left position as needed */
+    pointer-events: none; /* Prevent the placeholder from receiving mouse events */
+    color: #888; /* Optionally, adjust the color of the placeholder */
+}
+
 
 #Digital2022Large,
 #Digital2022Mid,

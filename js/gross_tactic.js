@@ -6,7 +6,8 @@
                         "CGT_BW_Geofencing",
                         "CGT_BW_Video",
                         "CGT_BW_Video_Geofencing",
-                        "CGT_BW_OTT_CTV"
+                        "CGT_BW_OTT_CTV",
+                        "CGT_Commission_D","CGT_Commission_G","CGT_Commission_V","CGT_Commission_VG","CGT_Commission_OC"
                     ];
 
 CGT_BW_Display=60;   CGT_BW_Geofencing=5;  CGT_BW_Video=20; CGT_BW_Video_Geofencing=5; CGT_BW_OTT_CTV=10;
@@ -274,11 +275,11 @@ function tactic_gross_margin_ott_ctv_p(){
                     function tactic_gross_SC_row_1(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
-                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
-                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'');
-                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'');
-                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
+                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'') / 100;
 
                         var S_CGT_Block_MCMC_1   = CGT_Block_MCMC_1.toString().replace(regex,'');
                         var S_CGT_Block_V_1   = CGT_Block_V_1.toString().replace(regex,'');
@@ -302,11 +303,11 @@ function tactic_gross_margin_ott_ctv_p(){
                     function tactic_gross_SC_row_2(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
-                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
-                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'');
-                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'');
-                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
+                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'') / 100;
 
                         var S_CGT_Block_MCMC_2   = CGT_Block_MCMC_2.toString().replace(regex,'');
                         var S_CGT_Block_V_2      = CGT_Block_V_2.toString().replace(regex,'');
@@ -330,11 +331,11 @@ function tactic_gross_margin_ott_ctv_p(){
                     function tactic_gross_SC_row_3(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'');
-                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'');
-                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'');
-                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'');
-                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'');
+                        var S_CGT_Commission_D   = CGT_Commission_D.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_G   = CGT_Commission_G.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_V   = CGT_Commission_V.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_VG  = CGT_Commission_VG.toString().replace(regex,'') / 100;
+                        var S_CGT_Commission_OC  = CGT_Commission_OC.toString().replace(regex,'') / 100;
 
                         var S_CGT_Block_MCMC_3   = CGT_Block_MCMC_3.toString().replace(regex,'');
                         var S_CGT_Block_V_3      = CGT_Block_V_3.toString().replace(regex,'');
@@ -534,7 +535,15 @@ function tactic_gross_margin_ott_ctv_p(){
                             CGT_MC_Geofencing:"CGT_MC_Geofencing",
                             CGT_MC_Video:"CGT_MC_Video",
                             CGT_MC_Video_Geofencing:"CGT_MC_Video_Geofencing",
-                            CGT_MC_OTT_CTV:"CGT_MC_OTT_CTV"
+                            CGT_MC_OTT_CTV:"CGT_MC_OTT_CTV",
+
+                            CGT_Commission_D:"CGT_Commission_D",
+                            CGT_Commission_G:"CGT_Commission_G",
+                            CGT_Commission_V:"CGT_Commission_V",
+                            CGT_Commission_VG:"CGT_Commission_VG",
+                            CGT_Commission_OC:"CGT_Commission_OC",
+
+
                         }
                         var GROSS_TACTIC_ABSV_elementMapping={
                             CGT_Block_V_1: "CGT_Block_V_1",
@@ -600,7 +609,14 @@ function tactic_gross_margin_ott_ctv_p(){
                             }
                             */
 
-                            if(current_id == "CGT_BW_Display" || current_id == "CGT_BW_Geofencing" ||
+                            if(
+                                current_id == "CGT_Commission_D" ||
+                                current_id == "CGT_Commission_G" ||
+                                current_id == "CGT_Commission_V" ||
+                                current_id == "CGT_Commission_VG" ||
+                                current_id == "CGT_Commission_OC" ||
+
+                                current_id == "CGT_BW_Display" || current_id == "CGT_BW_Geofencing" ||
                                 current_id == "CGT_BW_Video" || current_id == "CGT_BW_Video_Geofencing" || current_id ==  "CGT_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
                                 //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));

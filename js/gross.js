@@ -5,7 +5,8 @@
                         "CG_BW_Geofencing",
                         "CG_BW_Video",
                         "CG_BW_Video_Geofencing",
-                        "CG_BW_OTT_CTV"
+                        "CG_BW_OTT_CTV",
+                        "CG_Commission"
                     ];
 
 CG_BW_Display=60;   CG_BW_Geofencing=5;  CG_BW_Video=20; CG_BW_Video_Geofencing=5; CG_BW_OTT_CTV=10;
@@ -15,7 +16,7 @@ CG_M_Display=7.75;    CG_M_Geofencing=10;     CG_M_Video=9.50;  CG_M_Video_Geofe
 
 CG_M_P_Display=0.65;CG_M_P_Geofencing=0.67; CG_M_P_Video=0.43;CG_M_P_Video_Geofencing=0.48; CG_M_P_OTT_CTV=0.48;
 //commission %:
-CG_Commission=0.20;
+CG_Commission=20;
 
 CG_Block_V_1=10000; let CG_Block_MCMC_1=0; let CG_Block_SC_1=0; let CG_Block_MC_1=0; let CG_Block_SNR_1=0;
 CG_Block_V_2=30000; let CG_Block_MCMC_2=0; let CG_Block_SC_2=0; let CG_Block_MC_2=0; let CG_Block_SNR_2=0;
@@ -271,7 +272,7 @@ function gross_margin_ott_ctv_p(){
                     function gross_SC_row_1(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CG_Commission    = CG_Commission.toString().replace(regex,'');
+                        var S_CG_Commission    = CG_Commission.toString().replace(regex,'') / 100;
                         var S_CG_Block_V_1  = CG_Block_V_1.toString().replace(regex,'');
 
                         console.log("SC-ROW-1 :"+S_CG_Commission);
@@ -284,7 +285,7 @@ function gross_margin_ott_ctv_p(){
                     function gross_SC_row_2(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CG_Commission    = CG_Commission.toString().replace(regex,'');
+                        var S_CG_Commission    = CG_Commission.toString().replace(regex,'') / 100;
                         var S_CG_Block_V_2  = CG_Block_V_2.toString().replace(regex,'');
                         //console.log("SC-ROW-2 :"+S_CG_Commission);
                         //console.log("SC-ROW-2 :"+CG_Block_MCMC_2);
@@ -295,7 +296,7 @@ function gross_margin_ott_ctv_p(){
                     function gross_SC_row_3(){
                         var regex = /[$,%\s]/g;
 
-                        var S_CG_Commission= CG_Commission.toString().replace(regex,'');
+                        var S_CG_Commission= CG_Commission.toString().replace(regex,'') / 100;
                         var S_CG_Block_V_3   = CG_Block_V_3.toString().replace(regex,'');
 
                         CG_Block_SC_3 = floorOrCeil(S_CG_Commission * S_CG_Block_V_3);
@@ -470,7 +471,8 @@ function gross_margin_ott_ctv_p(){
                             CG_MC_Geofencing:"CG_MC_Geofencing",
                             CG_MC_Video:"CG_MC_Video",
                             CG_MC_Video_Geofencing:"CG_MC_Video_Geofencing",
-                            CG_MC_OTT_CTV:"CG_MC_OTT_CTV"
+                            CG_MC_OTT_CTV:"CG_MC_OTT_CTV",
+                            CG_Commission:"CG_Commission"
                         }
                         var GROSS_ABSV_elementMapping={
                             CG_Block_V_1: "CG_Block_V_1",
@@ -534,7 +536,7 @@ function gross_margin_ott_ctv_p(){
                                 console.log(`Result ${i + 1}:`, result);
                             }
                             */
-                            if(current_id == "CG_BW_Display" || current_id == "CG_BW_Geofencing" ||
+                            if( current_id=="CG_Commission" || current_id == "CG_BW_Display" || current_id == "CG_BW_Geofencing" ||
                                 current_id == "CG_BW_Video" || current_id == "CG_BW_Video_Geofencing" || current_id ==  "CG_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
                                 //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));

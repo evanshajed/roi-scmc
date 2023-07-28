@@ -7,7 +7,8 @@
                     "CNT_BW_Geofencing",
                     "CNT_BW_Video",
                     "CNT_BW_Video_Geofencing",
-                    "CNT_BW_OTT_CTV"
+                    "CNT_BW_OTT_CTV",
+                    "CNT_Commission_D","CNT_Commission_G","CNT_Commission_V","CNT_Commission_VG","CNT_Commission_OC"
                 ];
 
 CNT_BW_Display=60; CNT_BW_Geofencing=5; CNT_BW_Video=20; CNT_BW_Video_Geofencing=5;   CNT_BW_OTT_CTV=10;
@@ -16,7 +17,7 @@ CNT_MC_Display=4.25; CNT_MC_Geofencing=5;    CNT_MC_Video=12.5; CNT_MC_Video_Geo
 CNT_M_Display=7.75;  CNT_M_Geofencing=10;    CNT_M_Video =9.50; CNT_M_Video_Geofencing=12.50;   CNT_M_OTT_CTV=16;
 
 //  commission %:
-CNT_Commission_D=0.10;    CNT_Commission_G=0.15;    CNT_Commission_V=0.05;    CNT_Commission_VG=0.04;    CNT_Commission_OC=0.05;
+CNT_Commission_D=10;    CNT_Commission_G=15;    CNT_Commission_V=5;    CNT_Commission_VG=4;    CNT_Commission_OC=5;
 
 CNT_Block_V_1=10000; let CNT_Block_MCMC_1=0;  let CNT_Block_SC_1=0;    let CNT_Block_MC_1=0;    let CNT_Block_SNR_1=0;
 CNT_Block_V_2=30000; let CNT_Block_MCMC_2=0;  let CNT_Block_SC_2=0;    let CNT_Block_MC_2=0;    let CNT_Block_SNR_2=0;
@@ -271,11 +272,11 @@ function tactic_net_margin_ott_ctv_p(){
                 function tactic_net_SC_row_1(){
                     var regex = /[$,%\s]/g;
 
-                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'');
-                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'');
-                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'');
-                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'');
-                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'');
+                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'') /100;
 
                     var S_CNT_Block_MCMC_1   = CNT_Block_MCMC_1.toString().replace(regex,'');
 
@@ -298,11 +299,11 @@ function tactic_net_margin_ott_ctv_p(){
                 function tactic_net_SC_row_2(){
                     var regex = /[$,%\s]/g;
 
-                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'');
-                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'');
-                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'');
-                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'');
-                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'');
+                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'') / 100;
 
                     var S_CNT_Block_MCMC_2   = CNT_Block_MCMC_2.toString().replace(regex,'');
 
@@ -325,11 +326,11 @@ function tactic_net_margin_ott_ctv_p(){
                 function tactic_net_SC_row_3(){
                     var regex = /[$,%\s]/g;
 
-                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'');
-                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'');
-                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'');
-                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'');
-                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'');
+                    var S_CNT_Commission_D   = CNT_Commission_D.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_G   = CNT_Commission_G.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_V   = CNT_Commission_V.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_VG  = CNT_Commission_VG.toString().replace(regex,'') / 100;
+                    var S_CNT_Commission_OC  = CNT_Commission_OC.toString().replace(regex,'') / 100;
 
                     var S_CNT_Block_MCMC_3   = CNT_Block_MCMC_3.toString().replace(regex,'');
 
@@ -519,7 +520,13 @@ function tactic_net_margin_ott_ctv_p(){
                         CNT_MC_Geofencing:"CNT_MC_Geofencing",
                         CNT_MC_Video:"CNT_MC_Video",
                         CNT_MC_Video_Geofencing:"CNT_MC_Video_Geofencing",
-                        CNT_MC_OTT_CTV:"CNT_MC_OTT_CTV"
+                        CNT_MC_OTT_CTV:"CNT_MC_OTT_CTV",
+                        CNT_Commission_D:"CNT_Commission_D",
+                        CNT_Commission_G:"CNT_Commission_G",
+                        CNT_Commission_V:"CNT_Commission_V",
+                        CNT_Commission_VG:"CNT_Commission_VG",
+                        CNT_Commission_OC:"CNT_Commission_OC",
+
                     }
                     var NET_TACTIC_ABSV_elementMapping={
                         CNT_Block_V_1:"CNT_Block_V_1",
@@ -575,7 +582,14 @@ function tactic_net_margin_ott_ctv_p(){
                             $("#CNT_M_OTT_CTV").val("$" + tactic_net_margin_ott_ctv()+ " ("+tactic_net_margin_ott_ctv_p()+"%)");
                         }
 
-                        if(current_id == "CNT_BW_Display" || current_id == "CNT_BW_Geofencing" ||
+                        if(
+                            current_id == "CNT_Commission_D" ||
+                            current_id == "CNT_Commission_G" ||
+                            current_id == "CNT_Commission_V" ||
+                            current_id == "CNT_Commission_VG" ||
+                            current_id == "CNT_Commission_OC" ||
+
+                            current_id == "CNT_BW_Display" || current_id == "CNT_BW_Geofencing" ||
                             current_id == "CNT_BW_Video" || current_id == "CNT_BW_Video_Geofencing" || current_id ==  "CNT_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
                             //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));

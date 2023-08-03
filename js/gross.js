@@ -119,20 +119,28 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_BW_Video          = CG_BW_Video.toString().replace(regex,'')/100;
                         var S_CG_BW_Video_Geofencing = CG_BW_Video_Geofencing.toString().replace(regex,'')/100;
                         var S_CG_BW_OTT_CTV        = CG_BW_OTT_CTV.toString().replace(regex,'')/100;
-
                         var S_CG_RR_Display        = CG_RR_Display.toString().replace(regex,'');
-                        var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
+
+                    var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
+                    S_CG_M_Display = S_CG_M_Display.slice(0, CG_M_Display.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
+                    S_CG_M_Video = S_CG_M_Video.slice(0, CG_M_Video.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Geofencing = S_CG_M_Geofencing.slice(0, CG_M_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video_Geofencing= CG_M_Video_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Video_Geofencing = S_CG_M_Video_Geofencing.slice(0, CG_M_Video_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
+                    S_CG_M_OTT_CTV = S_CG_M_OTT_CTV.slice(0, CG_M_OTT_CTV.toString().replace(regex,'').indexOf('('));
 
                         var S_CG_RR_OTT_CTV        = CG_RR_OTT_CTV.toString().replace(regex,'');
-                        var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
                         var S_CG_RR_Geofencing     = CG_RR_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
-
                         var S_CG_RR_Video          = CG_RR_Video.toString().replace(regex,'');
-                        var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
-
                         var S_CG_RR_Video_Geofencing = CG_RR_Video_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Video_Geofencing  = CG_M_Video_Geofencing.toString().replace(regex,'');
+
 
                         //console.log((((( S_CG_Block_V_1 * S_CG_BW_Display ) / S_CG_RR_Display  )  * S_CG_M_Display)+(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV )  / S_CG_RR_OTT_CTV)  * S_CG_M_OTT_CTV)+(((S_CG_Block_V_1* S_CG_BW_Display)/ S_CG_RR_Geofencing)*S_CG_M_Geofencing)+(((S_CG_Block_V_1*S_CG_BW_Video )/S_CG_RR_Video)*S_CG_M_Video)+(((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_M_Video_Geofencing)));
 
@@ -174,18 +182,25 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_BW_OTT_CTV        = CG_BW_OTT_CTV.toString().replace(regex,'')/100;
 
                         var S_CG_RR_Display        = CG_RR_Display.toString().replace(regex,'');
-                        var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
-
                         var S_CG_RR_OTT_CTV        = CG_RR_OTT_CTV.toString().replace(regex,'');
-                        var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
                         var S_CG_RR_Geofencing     = CG_RR_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
-
                         var S_CG_RR_Video          = CG_RR_Video.toString().replace(regex,'');
-                        var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
-
                         var S_CG_RR_Video_Geofencing = CG_RR_Video_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Video_Geofencing  = CG_M_Video_Geofencing.toString().replace(regex,'');
+
+                    var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
+                    S_CG_M_Display = S_CG_M_Display.slice(0, CG_M_Display.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
+                    S_CG_M_Video = S_CG_M_Video.slice(0, CG_M_Video.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Geofencing = S_CG_M_Geofencing.slice(0, CG_M_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video_Geofencing= CG_M_Video_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Video_Geofencing = S_CG_M_Video_Geofencing.slice(0, CG_M_Video_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
+                    S_CG_M_OTT_CTV = S_CG_M_OTT_CTV.slice(0, CG_M_OTT_CTV.toString().replace(regex,'').indexOf('('));
 
                         //console.log((((( S_CG_Block_V_1 * S_CG_BW_Display ) / S_CG_RR_Display  )  * S_CG_M_Display)+(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV )  / S_CG_RR_OTT_CTV)  * S_CG_M_OTT_CTV)+(((S_CG_Block_V_1* S_CG_BW_Display)/ S_CG_RR_Geofencing)*S_CG_M_Geofencing)+(((S_CG_Block_V_1*S_CG_BW_Video )/S_CG_RR_Video)*S_CG_M_Video)+(((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_M_Video_Geofencing)));
 
@@ -227,18 +242,25 @@ function gross_margin_ott_ctv_p(){
                         var S_CG_BW_OTT_CTV          = CG_BW_OTT_CTV.toString().replace(regex,'')/100;
 
                         var S_CG_RR_Display        = CG_RR_Display.toString().replace(regex,'');
-                        var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
-
                         var S_CG_RR_OTT_CTV        = CG_RR_OTT_CTV.toString().replace(regex,'');
-                        var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
                         var S_CG_RR_Geofencing     = CG_RR_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
-
                         var S_CG_RR_Video          = CG_RR_Video.toString().replace(regex,'');
-                        var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
-
                         var S_CG_RR_Video_Geofencing = CG_RR_Video_Geofencing.toString().replace(regex,'');
-                        var S_CG_M_Video_Geofencing  = CG_M_Video_Geofencing.toString().replace(regex,'');
+
+                    var S_CG_M_Display         = CG_M_Display.toString().replace(regex,'');
+                    S_CG_M_Display = S_CG_M_Display.slice(0, CG_M_Display.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video           = CG_M_Video.toString().replace(regex,'');
+                    S_CG_M_Video = S_CG_M_Video.slice(0, CG_M_Video.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Geofencing      = CG_M_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Geofencing = S_CG_M_Geofencing.slice(0, CG_M_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_Video_Geofencing= CG_M_Video_Geofencing.toString().replace(regex,'');
+                    S_CG_M_Video_Geofencing = S_CG_M_Video_Geofencing.slice(0, CG_M_Video_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CG_M_OTT_CTV         = CG_M_OTT_CTV.toString().replace(regex,'');
+                    S_CG_M_OTT_CTV = S_CG_M_OTT_CTV.slice(0, CG_M_OTT_CTV.toString().replace(regex,'').indexOf('('));
 
                         //console.log((((( S_CG_Block_V_1 * S_CG_BW_Display ) / S_CG_RR_Display  )  * S_CG_M_Display)+(((S_CG_Block_V_1 * S_CG_BW_OTT_CTV )  / S_CG_RR_OTT_CTV)  * S_CG_M_OTT_CTV)+(((S_CG_Block_V_1* S_CG_BW_Display)/ S_CG_RR_Geofencing)*S_CG_M_Geofencing)+(((S_CG_Block_V_1*S_CG_BW_Video )/S_CG_RR_Video)*S_CG_M_Video)+(((S_CG_Block_V_1*S_CG_BW_Video_Geofencing)/S_CG_RR_Video_Geofencing)*S_CG_M_Video_Geofencing)));
 
@@ -472,7 +494,14 @@ function gross_margin_ott_ctv_p(){
                             CG_MC_Video:"CG_MC_Video",
                             CG_MC_Video_Geofencing:"CG_MC_Video_Geofencing",
                             CG_MC_OTT_CTV:"CG_MC_OTT_CTV",
-                            CG_Commission:"CG_Commission"
+                            CG_Commission:"CG_Commission",
+
+                            CG_M_Display:"CG_M_Display",
+                            CG_M_Geofencing:"CG_M_Geofencing",
+                            CG_M_Video:"CG_M_Video",
+                            CG_M_Video_Geofencing: "CG_M_Video_Geofencing",
+                            CG_M_OTT_CTV: "CG_M_OTT_CTV"
+
                         }
                         var GROSS_ABSV_elementMapping={
                             CG_Block_V_1: "CG_Block_V_1",

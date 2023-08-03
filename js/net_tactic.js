@@ -66,7 +66,7 @@ function tactic_net_margin_video(){
     var CNT_RR_Video_stripped = CNT_RR_Video.replace(regex,'');
     var CNT_MC_Video_stripped = CNT_MC_Video.replace(regex,'');
 
-    return (CNT_RR_Video_stripped - CN_MC_Video_stripped);
+    return (CNT_RR_Video_stripped - CNT_MC_Video_stripped);
 }
 function tactic_net_margin_video_p(){
     var regex = /[$,%\s]/g;
@@ -521,11 +521,14 @@ function tactic_net_margin_ott_ctv_p(){
                         CNT_MC_Video:"CNT_MC_Video",
                         CNT_MC_Video_Geofencing:"CNT_MC_Video_Geofencing",
                         CNT_MC_OTT_CTV:"CNT_MC_OTT_CTV",
+
                         CNT_Commission_D:"CNT_Commission_D",
                         CNT_Commission_G:"CNT_Commission_G",
                         CNT_Commission_V:"CNT_Commission_V",
                         CNT_Commission_VG:"CNT_Commission_VG",
                         CNT_Commission_OC:"CNT_Commission_OC",
+
+
 
                     }
                     var NET_TACTIC_ABSV_elementMapping={

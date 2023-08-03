@@ -96,6 +96,8 @@ function tactic_gross_margin_ott_ctv(){
     var regex = /[$,%\s]/g;
     var CGT_RR_OTT_CTV_stripped = CGT_RR_OTT_CTV.replace(regex,'');
     var CGT_MC_OTT_CTV_stripped = CGT_MC_OTT_CTV.replace(regex,'');
+
+
     return (CGT_RR_OTT_CTV_stripped - CGT_MC_OTT_CTV_stripped);
 }
 function tactic_gross_margin_ott_ctv_p(){
@@ -121,24 +123,35 @@ function tactic_gross_margin_ott_ctv_p(){
 
 
                         var S_CGT_RR_Display        = CGT_RR_Display.toString().replace(regex,'');
-                        var S_CGT_M_Display         = CGT_M_Display.toString().replace(regex,'');
-
                         var S_CGT_RR_OTT_CTV        = CGT_RR_OTT_CTV.toString().replace(regex,'');
-                        var S_CGT_M_OTT_CTV         = CGT_M_OTT_CTV.toString().replace(regex,'');
+
+
+                    var S_CGT_M_Display             = CGT_M_Display.toString().replace(regex,'');
+                    S_CGT_M_Display = S_CGT_M_Display.slice(0, CGT_M_Display.toString().replace(regex,'').indexOf('('));
+
+                    var S_CGT_M_OTT_CTV             = CGT_M_OTT_CTV.toString().replace(regex,'');
+                    S_CGT_M_OTT_CTV = S_CGT_M_OTT_CTV.slice(0, CGT_M_OTT_CTV.toString().replace(regex,'').indexOf('('));
+
+                    var S_CGT_M_Geofencing          = CGT_M_Geofencing.toString().replace(regex,'');
+                    S_CGT_M_Geofencing = S_CGT_M_Geofencing.slice(0, CGT_M_Geofencing.toString().replace(regex,'').indexOf('('));
+
+                    var S_CGT_M_Video               = CGT_M_Video.toString().replace(regex,'');
+                    S_CGT_M_Video = S_CGT_M_Video.slice(0, CGT_M_Video.toString().replace(regex,'').indexOf('('));
+
+                    var S_CGT_M_Video_Geofencing    = CGT_M_Video_Geofencing.toString().replace(regex,'');
+                    S_CGT_M_Video_Geofencing = S_CGT_M_Video_Geofencing.slice(0, CGT_M_Video_Geofencing.toString().replace(regex,'').indexOf('('));
+
+
                         var S_CGT_RR_Geofencing     = CGT_RR_Geofencing.toString().replace(regex,'');
-                        var S_CGT_M_Geofencing      = CGT_M_Geofencing.toString().replace(regex,'');
-
                         var S_CGT_RR_Video          = CGT_RR_Video.toString().replace(regex,'');
-                        var S_CGT_M_Video            = CGT_M_Video.toString().replace(regex,'');
-
                         var S_CGT_RR_Video_Geofencing = CGT_RR_Video_Geofencing.toString().replace(regex,'');
-                        var S_CGT_M_Video_Geofencing  = CGT_M_Video_Geofencing.toString().replace(regex,'');
+
 
                         //console.log((((( S_CGT_Block_V_1 * S_CGT_BW_Display ) / S_CGT_RR_Display  )  * S_CGT_M_Display)+(((S_CGT_Block_V_1 * S_CGT_BW_OTT_CTV )  / S_CGT_RR_OTT_CTV)  * S_CGT_M_OTT_CTV)+(((S_CGT_Block_V_1* S_CGT_BW_Display)/ S_CGT_RR_Geofencing)*S_CGT_M_Geofencing)+(((S_CGT_Block_V_1*S_CGT_BW_Video )/S_CGT_RR_Video)*S_CGT_M_Video)+(((S_CGT_Block_V_1*S_CGT_BW_Video_Geofencing)/S_CGT_RR_Video_Geofencing)*S_CGT_M_Video_Geofencing)));
 
 
                         console.log(
-                            "GROSS---TACTIC"+
+                            "GROSS---TACTIC  ---------------"+
                             S_CGT_Block_V_1 +"--"+ S_CGT_BW_Display          +"--"+ S_CGT_RR_Display          +"--"+S_CGT_M_Display+"\n"
                             +S_CGT_Block_V_1 +"--"+ S_CGT_BW_OTT_CTV          +"--"+ S_CGT_RR_OTT_CTV          +"--"+ S_CGT_M_OTT_CTV+"\n"
                             +S_CGT_Block_V_1 +"--"+ S_CGT_BW_Geofencing       +"--"+ S_CGT_RR_Geofencing       +"--"+ S_CGT_M_Geofencing+"\n"
@@ -531,6 +544,7 @@ function tactic_gross_margin_ott_ctv_p(){
                             CGT_RR_Video: "CGT_RR_Video",
                             CGT_RR_Video_Geofencing: "CGT_RR_Video_Geofencing",
                             CGT_RR_OTT_CTV: "CGT_RR_OTT_CTV",
+
                             CGT_MC_Display:"CGT_MC_Display",
                             CGT_MC_Geofencing:"CGT_MC_Geofencing",
                             CGT_MC_Video:"CGT_MC_Video",
@@ -543,6 +557,11 @@ function tactic_gross_margin_ott_ctv_p(){
                             CGT_Commission_VG:"CGT_Commission_VG",
                             CGT_Commission_OC:"CGT_Commission_OC",
 
+                            CGT_M_OTT_CTV:"CGT_M_OTT_CTV",
+                            CGT_M_Display: "CGT_M_Display",
+                            CGT_M_Geofencing: "CGT_M_Geofencing",
+                            CGT_M_Video: "CGT_M_Video",
+                            CGT_M_Video_Geofencing: "CGT_M_Video_Geofencing"
 
                         }
                         var GROSS_TACTIC_ABSV_elementMapping={

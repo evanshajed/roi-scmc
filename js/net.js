@@ -514,24 +514,25 @@ $(document).ready(function () {
         CN_BW_Video:"CN_BW_Video",
         CN_BW_Video_Geofencing:"CN_BW_Video_Geofencing",
         CN_BW_OTT_CTV:"CN_BW_OTT_CTV",
+        CN_Commission:"CN_Commission",
+
         CN_RR_Display: "CN_RR_Display",
         CN_RR_Geofencing: "CN_RR_Geofencing",
         CN_RR_Video: "CN_RR_Video",
         CN_RR_Video_Geofencing: "CN_RR_Video_Geofencing",
         CN_RR_OTT_CTV: "CN_RR_OTT_CTV",
+
         CN_MC_Display:"CN_MC_Display",
         CN_MC_Geofencing:"CN_MC_Geofencing",
         CN_MC_Video:"CN_MC_Video",
         CN_MC_Video_Geofencing:"CN_MC_Video_Geofencing",
         CN_MC_OTT_CTV:"CN_MC_OTT_CTV",
-        CN_Commission:"CN_Commission",
 
         CN_M_Display:"CN_M_Display",
         CN_M_Geofencing:"CN_M_Geofencing",
         CN_M_Video:"CN_M_Video",
         CN_M_Video_Geofencing:"CN_M_Video_Geofencing",
         CN_M_OTT_CTV:"CN_M_OTT_CTV"
-
     }
     var NET_ABSV_elementMapping={
         CN_Block_V_1: "CN_Block_V_1",
@@ -595,7 +596,7 @@ $(document).ready(function () {
             console.log(`Result ${i + 1}:`, result);,
         }
         */
-        if( current_id="CN_Commission" || current_id == "CN_BW_Display" || current_id == "CN_BW_Geofencing" ||
+        if( current_id == "CN_Commission" || current_id == "CN_BW_Display" || current_id == "CN_BW_Geofencing" ||
             current_id == "CN_BW_Video" || current_id == "CN_BW_Video_Geofencing" || current_id ==  "CN_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
             //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));
@@ -631,24 +632,32 @@ $(document).ready(function () {
             var parsedValue = parseFloat(inputValue); // Parse the input value to a floating-point number
             if (!isNaN(parsedValue)) {
 
+                $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+
                 if (keyword_net.includes(current_id))
                 {
-                    console.log("got a matched value");
-                    $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
-                }else
-                {
-                    const regex = /[$,%\s]/g;
+                    // console.log("got a matched value");
+                    // $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
+                }
 
-                    for (let i = 0; i < keyword_net.length; i++) {
-                        const keyword = keyword_net[i];
-                        const cleanedValue = $('#'+keyword).val().replace(regex, ''); // Apply the regex and remove any matches
-                        $('#'+keyword).val(cleanedValue+'%');
+                for (let i = 0; i < keyword_net.length; i++) {
+                    var regex = /[$,%\s]/g;
+                    const keyword = keyword_net[i];
+                    const cleanedValue = $('#'+keyword).val().replace(regex, ''); // Apply the regex and remove any matches
+                    $('#'+keyword).val(cleanedValue+'%');
+                    $('#'+keyword).text(cleanedValue+'%');
+
+                    if(keyword=="CN_Commission"){
+                        console.log(keyword);
+                        //console.log($('#'+keyword).val());
+                        //console.log($('#'+keyword).text());
                     }
 
-                    $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
                 }
 
             }
+
+
 
         }
         //console.log("Updated on blur variables:", CN_RR_Display, CN_RR_Geofencing, CN_RR_Video, CN_RR_Video_Geofencing, CN_RR_OTT_CTV);

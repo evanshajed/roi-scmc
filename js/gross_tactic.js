@@ -10,14 +10,14 @@
                         "CGT_Commission_D","CGT_Commission_G","CGT_Commission_V","CGT_Commission_VG","CGT_Commission_OC"
                     ];
 
-CGT_BW_Display=60;   CGT_BW_Geofencing=5;  CGT_BW_Video=20; CGT_BW_Video_Geofencing=5; CGT_BW_OTT_CTV=10;
-CGT_RR_Display=12;     CGT_RR_Geofencing=15;    CGT_RR_Video=22;   CGT_RR_Video_Geofencing=26;   CGT_RR_OTT_CTV=33;
-CGT_MC_Display=4.25;   CGT_MC_Geofencing=5;     CGT_MC_Video=12.5; CGT_MC_Video_Geofencing=13.50;CGT_MC_OTT_CTV=17;
-CGT_M_Display=7.75;    CGT_M_Geofencing=10;     CGT_M_Video=9.50;  CGT_M_Video_Geofencing =12.50;CGT_M_OTT_CTV=16;
+CGT_BW_Display=30;   CGT_BW_Geofencing=10;  CGT_BW_Video=0; CGT_BW_Video_Geofencing=0; CGT_BW_OTT_CTV=60;
+CGT_RR_Display=12;     CGT_RR_Geofencing=15;    CGT_RR_Video=22;   CGT_RR_Video_Geofencing=26;   CGT_RR_OTT_CTV=100;
+CGT_MC_Display=4.25;   CGT_MC_Geofencing=5;     CGT_MC_Video=12.5; CGT_MC_Video_Geofencing=13.50;CGT_MC_OTT_CTV=70;
+CGT_M_Display=7.75;    CGT_M_Geofencing=10;     CGT_M_Video=9.50;  CGT_M_Video_Geofencing =12.50;CGT_M_OTT_CTV=30;
 
 // commission %:
 
-CGT_Commission_D=10;    CGT_Commission_G=15;    CGT_Commission_V=5;    CGT_Commission_VG=4;    CGT_Commission_OC=5;
+CGT_Commission_D=10;    CGT_Commission_G=15;    CGT_Commission_V=0;    CGT_Commission_VG=0;    CGT_Commission_OC=5;
 
 CGT_Block_V_1=10000; let CGT_Block_MCMC_1=0;  let CGT_Block_SC_1=0;    let CGT_Block_MC_1=0;    let CGT_Block_SNR_1=0;
 CGT_Block_V_2=30000; let CGT_Block_MCMC_2=0;  let CGT_Block_SC_2=0;    let CGT_Block_MC_2=0;    let CGT_Block_SNR_2=0;

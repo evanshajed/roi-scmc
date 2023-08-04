@@ -9,16 +9,16 @@
                         "CG_Commission"
                     ];
 
-CG_BW_Display=60;   CG_BW_Geofencing=5;  CG_BW_Video=20; CG_BW_Video_Geofencing=5; CG_BW_OTT_CTV=10;
-CG_RR_Display=12;     CG_RR_Geofencing=15;    CG_RR_Video=22;   CG_RR_Video_Geofencing=26;   CG_RR_OTT_CTV=33;
-CG_MC_Display=4.25;   CG_MC_Geofencing=5;     CG_MC_Video=12.5; CG_MC_Video_Geofencing=13.50;CG_MC_OTT_CTV=17;
-CG_M_Display=7.75;    CG_M_Geofencing=10;     CG_M_Video=9.50;  CG_M_Video_Geofencing =12.50;CG_M_OTT_CTV=16;
+CG_BW_Display=35;   CG_BW_Geofencing=15;  CG_BW_Video=0; CG_BW_Video_Geofencing=0; CG_BW_OTT_CTV=50;
+CG_RR_Display=14;     CG_RR_Geofencing=15;    CG_RR_Video=22;   CG_RR_Video_Geofencing=26;   CG_RR_OTT_CTV=100;
+CG_MC_Display=4.25;   CG_MC_Geofencing=5;     CG_MC_Video=12.5; CG_MC_Video_Geofencing=13.50;CG_MC_OTT_CTV=70;
+CG_M_Display=9.75;    CG_M_Geofencing=10;     CG_M_Video=9.50;  CG_M_Video_Geofencing =12.50;CG_M_OTT_CTV=30;
 
-CG_M_P_Display=0.65;CG_M_P_Geofencing=0.67; CG_M_P_Video=0.43;CG_M_P_Video_Geofencing=0.48; CG_M_P_OTT_CTV=0.48;
+CG_M_P_Display=0.70;CG_M_P_Geofencing=0.67; CG_M_P_Video=0.43;CG_M_P_Video_Geofencing=0.48; CG_M_P_OTT_CTV=0.30;
 //commission %:
 CG_Commission=20;
 
-CG_Block_V_1=10000; let CG_Block_MCMC_1=0; let CG_Block_SC_1=0; let CG_Block_MC_1=0; let CG_Block_SNR_1=0;
+CG_Block_V_1=15000; let CG_Block_MCMC_1=0; let CG_Block_SC_1=0; let CG_Block_MC_1=0; let CG_Block_SNR_1=0;
 CG_Block_V_2=30000; let CG_Block_MCMC_2=0; let CG_Block_SC_2=0; let CG_Block_MC_2=0; let CG_Block_SNR_2=0;
 CG_Block_V_3=50000; let CG_Block_MCMC_3=0; let CG_Block_SC_3=0; let CG_Block_MC_3=0; let CG_Block_SNR_3=0;
 

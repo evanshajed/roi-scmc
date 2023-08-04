@@ -634,31 +634,14 @@ $(document).ready(function () {
 
                 $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
 
-                if (keyword_net.includes(current_id))
-                {
-                    // console.log("got a matched value");
-                    // $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
-                }
-
                 for (let i = 0; i < keyword_net.length; i++) {
                     var regex = /[$,%\s]/g;
                     const keyword = keyword_net[i];
                     const cleanedValue = $('#'+keyword).val().replace(regex, ''); // Apply the regex and remove any matches
                     $('#'+keyword).val(cleanedValue+'%');
                     $('#'+keyword).text(cleanedValue+'%');
-
-                    if(keyword=="CN_Commission"){
-                        console.log(keyword);
-                        //console.log($('#'+keyword).val());
-                        //console.log($('#'+keyword).text());
-                    }
-
                 }
-
             }
-
-
-
         }
         //console.log("Updated on blur variables:", CN_RR_Display, CN_RR_Geofencing, CN_RR_Video, CN_RR_Video_Geofencing, CN_RR_OTT_CTV);
         //console.log("Updated on blur variables:", CN_MC_Display, CN_MC_Geofencing, CN_MC_Video, CN_MC_Video_Geofencing, CN_MC_OTT_CTV);

@@ -625,15 +625,15 @@ function tactic_net_margin_ott_ctv_p(){
 
                             var inputValue = $("#" + elementID).val();
                             var parsedValue = parseFloat(inputValue); // Parse the input value to a floating-point number
-                            if (!isNaN(parsedValue))
-                            {
-                                if (keywords_net_tactic.includes(current_id))
-                                {
-                                    console.log("got a matched value");
-                                    $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
-                                }else
-                                {
-                                    $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+                            if (!isNaN(parsedValue)){
+                                $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+
+                                for (let i = 0; i < keywords_net_tactic.length; i++) {
+                                    var regex = /[$,%\s]/g;
+                                    const keyword = keywords_net_tactic[i];
+                                    const cleanedValue = $('#'+keyword).val().replace(regex, ''); // Apply the regex and remove any matches
+                                    $('#'+keyword).val(cleanedValue+'%');
+                                    $('#'+keyword).text(cleanedValue+'%');
                                 }
                             }
 

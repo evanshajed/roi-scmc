@@ -1,22 +1,22 @@
-                       //   N E T
+//   N E T
 
-                       const keyword_net = [
-                           "CN_BW_Display",
-                           "CN_BW_Geofencing",
-                           "CN_BW_Video",
-                           "CN_BW_Video_Geofencing",
-                           "CN_BW_OTT_CTV",
-                           "CN_Commission"
-                       ];
+const keyword_net = [
+    "CN_BW_Display",
+    "CN_BW_Geofencing",
+    "CN_BW_Video",
+    "CN_BW_Video_Geofencing",
+    "CN_BW_OTT_CTV",
+    "CN_Commission"
+];
 
-                       function floorOrCeil(value) {
-                           var fractionalPart = value - Math.floor(value);
-                           return fractionalPart >= 0.5 ? Math.ceil(value) : Math.floor(value);
-                           //return fractionalPart >  0.5 ? Math.ceil(value) : Math.floor(value);
-                       }
+function floorOrCeil(value) {
+    var fractionalPart = value - Math.floor(value);
+    return fractionalPart >= 0.5 ? Math.ceil(value) : Math.floor(value);
+    //return fractionalPart >  0.5 ? Math.ceil(value) : Math.floor(value);
+}
 
 
-                       //  Budget Weighting
+//  Budget Weighting
 CN_BW_Display=60; CN_BW_Geofencing=5;  CN_BW_Video=20;  CN_BW_Video_Geofencing=5;  CN_BW_OTT_CTV=10;
 //  Retail Rate
 CN_RR_Display=12;   CN_RR_Geofencing=15;    CN_RR_Video=22;   CN_RR_Video_Geofencing=26;    CN_RR_OTT_CTV=33;
@@ -168,7 +168,7 @@ function net_MCMC_row_1(){
 
 
     console.log(
-    "NET"+
+        "NET"+
         S_CN_Block_V_1 +"--"+ S_CN_BW_Display           +"--"+ S_CN_RR_Display              +"--"+S_CN_M_Display+"\n"
         +S_CN_Block_V_1 +"--"+ S_CN_BW_OTT_CTV          +"--"+ S_CN_RR_OTT_CTV              +"--"+ S_CN_M_OTT_CTV+"\n"
         +S_CN_Block_V_1 +"--"+ S_CN_BW_Geofencing          +"--"+ S_CN_RR_Geofencing           +"--"+ S_CN_M_Geofencing+"\n"
@@ -180,11 +180,11 @@ function net_MCMC_row_1(){
 
     CN_Block_MCMC_1 =
         floorOrCeil(
-        ((( S_CN_Block_V_1 * S_CN_BW_Display        ) / S_CN_RR_Display      )* S_CN_M_Display)
-        +(((S_CN_Block_V_1 * S_CN_BW_OTT_CTV        ) / S_CN_RR_OTT_CTV      )* S_CN_M_OTT_CTV)
-        +(((S_CN_Block_V_1 * S_CN_BW_Geofencing     ) / S_CN_RR_Geofencing   )* S_CN_M_Geofencing)
-        +(((S_CN_Block_V_1 * S_CN_BW_Video          ) / S_CN_RR_Video        )* S_CN_M_Video)
-        +(((S_CN_Block_V_1 * S_CN_BW_Video_Geofencing)/ S_CN_RR_Video_Geofencing)* S_CN_M_Video_Geofencing)
+            ((( S_CN_Block_V_1 * S_CN_BW_Display        ) / S_CN_RR_Display      )* S_CN_M_Display)
+            +(((S_CN_Block_V_1 * S_CN_BW_OTT_CTV        ) / S_CN_RR_OTT_CTV      )* S_CN_M_OTT_CTV)
+            +(((S_CN_Block_V_1 * S_CN_BW_Geofencing     ) / S_CN_RR_Geofencing   )* S_CN_M_Geofencing)
+            +(((S_CN_Block_V_1 * S_CN_BW_Video          ) / S_CN_RR_Video        )* S_CN_M_Video)
+            +(((S_CN_Block_V_1 * S_CN_BW_Video_Geofencing)/ S_CN_RR_Video_Geofencing)* S_CN_M_Video_Geofencing)
         );
 
     return floorOrCeil(
@@ -233,16 +233,16 @@ function net_MCMC_row_2(){
 
     CN_Block_MCMC_2 =
         floorOrCeil(
-        ((( S_CN_Block_V_2 * S_CN_BW_Display        ) / S_CN_RR_Display      )* S_CN_M_Display)
-        +(((S_CN_Block_V_2 * S_CN_BW_OTT_CTV        ) / S_CN_RR_OTT_CTV      )* S_CN_M_OTT_CTV)
-        +(((S_CN_Block_V_2 * S_CN_BW_Geofencing     ) / S_CN_RR_Geofencing   )* S_CN_M_Geofencing)
-        +(((S_CN_Block_V_2 * S_CN_BW_Video          ) / S_CN_RR_Video        )* S_CN_M_Video)
-        +(((S_CN_Block_V_2 * S_CN_BW_Video_Geofencing)/ S_CN_RR_Video_Geofencing)* S_CN_M_Video_Geofencing)
+            ((( S_CN_Block_V_2 * S_CN_BW_Display        ) / S_CN_RR_Display      )* S_CN_M_Display)
+            +(((S_CN_Block_V_2 * S_CN_BW_OTT_CTV        ) / S_CN_RR_OTT_CTV      )* S_CN_M_OTT_CTV)
+            +(((S_CN_Block_V_2 * S_CN_BW_Geofencing     ) / S_CN_RR_Geofencing   )* S_CN_M_Geofencing)
+            +(((S_CN_Block_V_2 * S_CN_BW_Video          ) / S_CN_RR_Video        )* S_CN_M_Video)
+            +(((S_CN_Block_V_2 * S_CN_BW_Video_Geofencing)/ S_CN_RR_Video_Geofencing)* S_CN_M_Video_Geofencing)
         );
 
 
     console.log(
-    "NET"+
+        "NET"+
         S_CN_Block_V_2 +"--"+ S_CN_BW_Display           +"--"+ S_CN_RR_Display          +"--"+S_CN_M_Display+"\n"
         +S_CN_Block_V_2 +"--"+ S_CN_BW_OTT_CTV          +"--"+ S_CN_RR_OTT_CTV          +"--"+ S_CN_M_OTT_CTV+"\n"
         +S_CN_Block_V_2 +"--"+ S_CN_BW_Geofencing       +"--"+ S_CN_RR_Geofencing       +"--"+ S_CN_M_Geofencing+"\n"
@@ -382,11 +382,11 @@ function net_MC_row_1(){
 
     CN_Block_MC_1=
         floorOrCeil(
-    (((S_CN_Block_V_1*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
-    (((S_CN_Block_V_1*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
-    (((S_CN_Block_V_1*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
-    (((S_CN_Block_V_1*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
-    (((S_CN_Block_V_1*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
+            (((S_CN_Block_V_1*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
+            (((S_CN_Block_V_1*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
+            (((S_CN_Block_V_1*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
+            (((S_CN_Block_V_1*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
+            (((S_CN_Block_V_1*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
         );
 
     return floorOrCeil(
@@ -440,9 +440,9 @@ function net_MC_row_2(){
     );
 }
 function net_MC_row_3(){
-   //var regex = /[$,%\s]/g;
+    //var regex = /[$,%\s]/g;
     var regex = /[$,%\s]/g;
-   var S_CN_Block_V_3  = CN_Block_V_3.toString().replace(regex,'');
+    var S_CN_Block_V_3  = CN_Block_V_3.toString().replace(regex,'');
 
     var S_CN_BW_Display        = CN_BW_Display.toString().replace(regex,'') / 100;
     var S_CN_BW_Geofencing     = CN_BW_Geofencing.toString().replace(regex,'') / 100;
@@ -450,36 +450,36 @@ function net_MC_row_3(){
     var S_CN_BW_Video_Geofencing     = CN_BW_Video_Geofencing.toString().replace(regex,'') / 100;
     var S_CN_BW_OTT_CTV              = CN_BW_OTT_CTV.toString().replace(regex,'') / 100;
 
-   var S_CN_RR_Display = CN_RR_Display.toString().replace(regex,'');
-   var S_CN_MC_Display = CN_MC_Display.toString().replace(regex,'');
+    var S_CN_RR_Display = CN_RR_Display.toString().replace(regex,'');
+    var S_CN_MC_Display = CN_MC_Display.toString().replace(regex,'');
 
-   var S_CN_RR_OTT_CTV = CN_RR_OTT_CTV.toString().replace(regex,'');
-   var S_CN_MC_OTT_CTV = CN_MC_OTT_CTV.toString().replace(regex,'');
+    var S_CN_RR_OTT_CTV = CN_RR_OTT_CTV.toString().replace(regex,'');
+    var S_CN_MC_OTT_CTV = CN_MC_OTT_CTV.toString().replace(regex,'');
 
-   var S_CN_RR_Geofencing = CN_RR_Geofencing.toString().replace(regex,'');
-   var S_CN_MC_Geofencing = CN_MC_Geofencing.toString().replace(regex,'');
+    var S_CN_RR_Geofencing = CN_RR_Geofencing.toString().replace(regex,'');
+    var S_CN_MC_Geofencing = CN_MC_Geofencing.toString().replace(regex,'');
 
-   var S_CN_RR_Video = CN_RR_Video.toString().replace(regex,'');
-   var S_CN_MC_Video = CN_MC_Video.toString().replace(regex,'');
+    var S_CN_RR_Video = CN_RR_Video.toString().replace(regex,'');
+    var S_CN_MC_Video = CN_MC_Video.toString().replace(regex,'');
 
-   var S_CN_RR_Video_Geofencing = CN_RR_Video_Geofencing.toString().replace(regex,'');
-   var S_CN_MC_Video_Geofencing = CN_MC_Video_Geofencing.toString().replace(regex,'');
+    var S_CN_RR_Video_Geofencing = CN_RR_Video_Geofencing.toString().replace(regex,'');
+    var S_CN_MC_Video_Geofencing = CN_MC_Video_Geofencing.toString().replace(regex,'');
 
-   CN_Block_MC_3=floorOrCeil(
-       (((S_CN_Block_V_3*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
-       (((S_CN_Block_V_3*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
-       (((S_CN_Block_V_3*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
-       (((S_CN_Block_V_3*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
-       (((S_CN_Block_V_3*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
-   );
+    CN_Block_MC_3=floorOrCeil(
+        (((S_CN_Block_V_3*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
+        (((S_CN_Block_V_3*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
+        (((S_CN_Block_V_3*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
+        (((S_CN_Block_V_3*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
+        (((S_CN_Block_V_3*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
+    );
 
-   return floorOrCeil(
-       (((S_CN_Block_V_3*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
-       (((S_CN_Block_V_3*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
-       (((S_CN_Block_V_3*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
-       (((S_CN_Block_V_3*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
-       (((S_CN_Block_V_3*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
-   );
+    return floorOrCeil(
+        (((S_CN_Block_V_3*S_CN_BW_Display)/S_CN_RR_Display)*S_CN_MC_Display)+
+        (((S_CN_Block_V_3*S_CN_BW_OTT_CTV)/S_CN_RR_OTT_CTV)*S_CN_MC_OTT_CTV)+
+        (((S_CN_Block_V_3*S_CN_BW_Geofencing)/S_CN_RR_Geofencing)*S_CN_MC_Geofencing)+
+        (((S_CN_Block_V_3*S_CN_BW_Video)/S_CN_RR_Video)*S_CN_MC_Video)+
+        (((S_CN_Block_V_3*S_CN_BW_Video_Geofencing)/S_CN_RR_Video_Geofencing)*S_CN_MC_Video_Geofencing)
+    );
 }
 function net_SNR_row_1(){
 
@@ -631,14 +631,22 @@ $(document).ready(function () {
             var parsedValue = parseFloat(inputValue); // Parse the input value to a floating-point number
             if (!isNaN(parsedValue)) {
 
-                    if (keyword_net.includes(current_id))
-                    {
-                        console.log("got a matched value");
-                        $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
-                    }else
-                    {
-                        $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+                if (keyword_net.includes(current_id))
+                {
+                    console.log("got a matched value");
+                    $("#" + elementID).val(parsedValue.toFixed(2)+ "%");
+                }else
+                {
+                    const regex = /[$,%\s]/g;
+
+                    for (let i = 0; i < keyword_net.length; i++) {
+                        const keyword = keyword_net[i];
+                        const cleanedValue = $('#'+keyword).val().replace(regex, ''); // Apply the regex and remove any matches
+                        $('#'+keyword).val(cleanedValue+'%');
                     }
+
+                    $("#" + elementID).val("$" + parsedValue.toFixed(2)); // Add the dollar sign and format the number with 2 decimal places
+                }
 
             }
 

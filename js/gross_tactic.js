@@ -587,16 +587,19 @@ function tactic_gross_margin_ott_ctv_p(){
                         }
 
                         $("#CGT_Block_MCMC_1").text("$" + tactic_gross_MCMC_row_1().toFixed(2));
-                        $("#CGT_Block_MCMC_2").text("$" + tactic_gross_MCMC_row_2().toFixed(2));
-                        $("#CGT_Block_MCMC_3").text("$" + tactic_gross_MCMC_row_3().toFixed(2));
                         $("#CGT_Block_SC_1").text("$"   + tactic_gross_SC_row_1().toFixed(2));
-                        $("#CGT_Block_SC_2").text("$"   + tactic_gross_SC_row_2().toFixed(2));
-                        $("#CGT_Block_SC_3").text("$"   + tactic_gross_SC_row_3().toFixed(2));
                         $("#CGT_Block_MC_1").text("$"   + tactic_gross_MC_row_1().toFixed(2));
-                        $("#CGT_Block_MC_2").text("$"   + tactic_gross_MC_row_2().toFixed(2));
-                        $("#CGT_Block_MC_3").text("$"   + tactic_gross_MC_row_3().toFixed(2));
                         $("#CGT_Block_SNR_1").text("$"  + tactic_gross_SNR_row_1().toFixed(2));
+
+                        $("#CGT_Block_MCMC_2").text("$" + tactic_gross_MCMC_row_2().toFixed(2));
+                        $("#CGT_Block_SC_2").text("$"   + tactic_gross_SC_row_2().toFixed(2));
+                        $("#CGT_Block_MC_2").text("$"   + tactic_gross_MC_row_2().toFixed(2));
                         $("#CGT_Block_SNR_2").text("$"  + tactic_gross_SNR_row_2().toFixed(2));
+
+
+                        $("#CGT_Block_MCMC_3").text("$" + tactic_gross_MCMC_row_3().toFixed(2));
+                        $("#CGT_Block_SC_3").text("$"   + tactic_gross_SC_row_3().toFixed(2));
+                        $("#CGT_Block_MC_3").text("$"   + tactic_gross_MC_row_3().toFixed(2));
                         $("#CGT_Block_SNR_3").text("$"  + tactic_gross_SNR_row_3().toFixed(2));
 
 
@@ -655,20 +658,21 @@ function tactic_gross_margin_ott_ctv_p(){
                                 current_id == "CGT_BW_Video" || current_id == "CGT_BW_Video_Geofencing" || current_id ==  "CGT_BW_OTT_CTV"){
 // get NET - Display - Margin and Margin Percentage
                                 //$("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));
-                                $("#CGT_Block_MCMC_1").text("$" + tactic_gross_MCMC_row_1());
-                                $("#CGT_Block_MC_1").text("$" + tactic_gross_MC_row_1().toFixed(2));
-                                $("#CGT_Block_SC_1").text("$" + tactic_gross_SC_row_1().toFixed(2));
-                                $("#CGT_Block_SNR_1").text("$" + tactic_gross_SNR_row_1().toFixed(2));
+                                $("#CGT_Block_MCMC_1").text("$" + tactic_gross_MCMC_row_1().toFixed(2));
+                                $("#CGT_Block_SC_1").text("$"   + tactic_gross_SC_row_1().toFixed(2));
+                                $("#CGT_Block_MC_1").text("$"   + tactic_gross_MC_row_1().toFixed(2));
+                                $("#CGT_Block_SNR_1").text("$"  + tactic_gross_SNR_row_1().toFixed(2));
 
                                 $("#CGT_Block_MCMC_2").text("$" + tactic_gross_MCMC_row_2().toFixed(2));
-                                $("#CGT_Block_MC_2").text("$" + tactic_gross_MC_row_2().toFixed(2));
-                                $("#CGT_Block_SC_2").text("$" + tactic_gross_SC_row_2().toFixed(2));
-                                $("#CGT_Block_SNR_2").text("$" + tactic_gross_SNR_row_2().toFixed(2));
+                                $("#CGT_Block_SC_2").text("$"   + tactic_gross_SC_row_2().toFixed(2));
+                                $("#CGT_Block_MC_2").text("$"   + tactic_gross_MC_row_2().toFixed(2));
+                                $("#CGT_Block_SNR_2").text("$"  + tactic_gross_SNR_row_2().toFixed(2));
+
 
                                 $("#CGT_Block_MCMC_3").text("$" + tactic_gross_MCMC_row_3().toFixed(2));
-                                $("#CGT_Block_MC_3").text("$" + tactic_gross_MC_row_3().toFixed(2));
-                                $("#CGT_Block_SC_3").text("$" + tactic_gross_SC_row_3().toFixed(2));
-                                $("#CGT_Block_SNR_3").text("$" + tactic_gross_SNR_row_3().toFixed(2));
+                                $("#CGT_Block_SC_3").text("$"   + tactic_gross_SC_row_3().toFixed(2));
+                                $("#CGT_Block_MC_3").text("$"   + tactic_gross_MC_row_3().toFixed(2));
+                                $("#CGT_Block_SNR_3").text("$"  + tactic_gross_SNR_row_3().toFixed(2));
                             }
 
                         }

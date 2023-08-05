@@ -510,16 +510,18 @@ function gross_margin_ott_ctv_p(){
                         }
 
                         $("#CG_Block_MCMC_1").text("$" + gross_MCMC_row_1().toFixed(2));
-                        $("#CG_Block_MCMC_2").text("$" + gross_MCMC_row_2().toFixed(2));
-                        $("#CG_Block_MCMC_3").text("$" + gross_MCMC_row_3().toFixed(2));
                         $("#CG_Block_SC_1").text("$" + gross_SC_row_1().toFixed(2));
-                        $("#CG_Block_SC_2").text("$" + gross_SC_row_2().toFixed(2));
-                        $("#CG_Block_SC_3").text("$" + gross_SC_row_3().toFixed(2));
                         $("#CG_Block_MC_1").text("$" + gross_MC_row_1().toFixed(2));
-                        $("#CG_Block_MC_2").text("$" + gross_MC_row_2().toFixed(2));
-                        $("#CG_Block_MC_3").text("$" + gross_MC_row_3().toFixed(2));
                         $("#CG_Block_SNR_1").text("$" + gross_SNR_row_1().toFixed(2));
+
+                        $("#CG_Block_MCMC_2").text("$" + gross_MCMC_row_2().toFixed(2));
+                        $("#CG_Block_SC_2").text("$" + gross_SC_row_2().toFixed(2));
+                        $("#CG_Block_MC_2").text("$" + gross_MC_row_2().toFixed(2));
                         $("#CG_Block_SNR_2").text("$" + gross_SNR_row_2().toFixed(2));
+
+                        $("#CG_Block_MCMC_3").text("$" + gross_MCMC_row_3().toFixed(2));
+                        $("#CG_Block_SC_3").text("$" + gross_SC_row_3().toFixed(2));
+                        $("#CG_Block_MC_3").text("$" + gross_MC_row_3().toFixed(2));
                         $("#CG_Block_SNR_3").text("$" + gross_SNR_row_3().toFixed(2));
 
                         function GROSS_MARGIN_updateVariables_keyup() {

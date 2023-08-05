@@ -540,17 +540,19 @@ $(document).ready(function () {
         CN_Block_V_3:"CN_Block_V_3"
     }
 
-    $("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1().toFixed(2));
-    $("#CN_Block_MCMC_2").text("$" + net_MCMC_row_2().toFixed(2));
-    $("#CN_Block_MCMC_3").text("$" + net_MCMC_row_3().toFixed(2));
-    $("#CN_Block_SC_1").text("$" + net_SC_row_1().toFixed(2));
-    $("#CN_Block_SC_2").text("$" + net_SC_row_2().toFixed(2));
-    $("#CN_Block_SC_3").text("$" + net_SC_row_3().toFixed(2));
+    $("#CN_Block_MCMC_1").text("$" + net_MCMC_row_1());
     $("#CN_Block_MC_1").text("$" + net_MC_row_1().toFixed(2));
-    $("#CN_Block_MC_2").text("$" + net_MC_row_2().toFixed(2));
-    $("#CN_Block_MC_3").text("$" + net_MC_row_3().toFixed(2));
+    $("#CN_Block_SC_1").text("$" + net_SC_row_1().toFixed(2));
     $("#CN_SNR_1").text("$" + net_SNR_row_1().toFixed(2));
+
+    $("#CN_Block_MCMC_2").text("$" + net_MCMC_row_2().toFixed(2));
+    $("#CN_Block_MC_2").text("$" + net_MC_row_2().toFixed(2));
+    $("#CN_Block_SC_2").text("$" + net_SC_row_2().toFixed(2));
     $("#CN_SNR_2").text("$" + net_SNR_row_2().toFixed(2));
+
+    $("#CN_Block_MCMC_3").text("$" + net_MCMC_row_3().toFixed(2));
+    $("#CN_Block_MC_3").text("$" + net_MC_row_3().toFixed(2));
+    $("#CN_Block_SC_3").text("$" + net_SC_row_3().toFixed(2));
     $("#CN_SNR_3").text("$" + net_SNR_row_3().toFixed(2));
 
     function NET_MARGIN_updateVariables_keyup() {

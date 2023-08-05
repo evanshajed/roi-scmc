@@ -17,15 +17,15 @@ function floorOrCeil(value) {
 
 
 //  Budget Weighting
-CN_BW_Display=10; CN_BW_Geofencing=40;  CN_BW_Video=0;  CN_BW_Video_Geofencing=0;  CN_BW_OTT_CTV=50;
+CN_BW_Display=65; CN_BW_Geofencing=20;  CN_BW_Video=5;  CN_BW_Video_Geofencing=5;  CN_BW_OTT_CTV=5;
 //  Retail Rate
-CN_RR_Display=12;   CN_RR_Geofencing=15;    CN_RR_Video=22;   CN_RR_Video_Geofencing=26;    CN_RR_OTT_CTV=100;
+CN_RR_Display=12;   CN_RR_Geofencing=15;    CN_RR_Video=22;   CN_RR_Video_Geofencing=26;    CN_RR_OTT_CTV=35;
 //  Media Costs
-CN_MC_Display=4.25; CN_MC_Geofencing=5;     CN_MC_Video=12.5; CN_MC_Video_Geofencing=13.50; CN_MC_OTT_CTV=70;
+CN_MC_Display=4.25; CN_MC_Geofencing=5;     CN_MC_Video=12.5; CN_MC_Video_Geofencing=13.50; CN_MC_OTT_CTV=18;
 //  Margin
-CN_M_Display=7.75;  CN_M_Geofencing=10;     CN_M_Video=9.50;  CN_M_Video_Geofencing=12.50;  CN_M_OTT_CTV=30;
+CN_M_Display=7.75;  CN_M_Geofencing=10;     CN_M_Video=9.50;  CN_M_Video_Geofencing=12.50;  CN_M_OTT_CTV=17;
 //  Margin Percentage
-CN_M_P_Display=0.65;CN_M_P_Geofencing=0.67; CN_M_P_Video=0.43;CN_M_P_Video_Geofencing=0.48; CN_M_P_OTT_CTV=0.48;
+CN_M_P_Display=0.65;CN_M_P_Geofencing=0.67; CN_M_P_Video=0.43;CN_M_P_Video_Geofencing=0.48; CN_M_P_OTT_CTV=0.49;
 
 //commission %:
 CN_Commission=15;

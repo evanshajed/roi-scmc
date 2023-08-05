@@ -18,7 +18,7 @@ CG_M_P_Display=0.70;CG_M_P_Geofencing=0.67; CG_M_P_Video=0.43;CG_M_P_Video_Geofe
 //commission %:
 CG_Commission=20;
 
-CG_Block_V_1=15000; let CG_Block_MCMC_1=0; let CG_Block_SC_1=0; let CG_Block_MC_1=0; let CG_Block_SNR_1=0;
+CG_Block_V_1=10000; let CG_Block_MCMC_1=0; let CG_Block_SC_1=0; let CG_Block_MC_1=0; let CG_Block_SNR_1=0;
 CG_Block_V_2=30000; let CG_Block_MCMC_2=0; let CG_Block_SC_2=0; let CG_Block_MC_2=0; let CG_Block_SNR_2=0;
 CG_Block_V_3=50000; let CG_Block_MCMC_3=0; let CG_Block_SC_3=0; let CG_Block_MC_3=0; let CG_Block_SNR_3=0;
 

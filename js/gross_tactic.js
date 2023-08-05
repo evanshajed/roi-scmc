@@ -315,18 +315,18 @@ function tactic_gross_margin_ott_ctv_p(){
 
                         CGT_Block_SC_1 =
                             floorOrCeil(
-                                (S_CGT_Commission_D * S_CGT_Block_V_1)+
-                                (S_CGT_Commission_G * S_CGT_Block_V_1)+
-                                (S_CGT_Commission_V * S_CGT_Block_V_1)+
-                                (S_CGT_Commission_VG * S_CGT_Block_V_1)+
-                                (S_CGT_Commission_OC * S_CGT_Block_V_1)
+                                (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
+                                (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
+                                (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
+                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_1)+
+                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_1)
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D * S_CGT_Block_V_1)+
-                            (S_CGT_Commission_G * S_CGT_Block_V_1)+
-                            (S_CGT_Commission_V * S_CGT_Block_V_1)+
-                            (S_CGT_Commission_VG * S_CGT_Block_V_1)+
-                            (S_CGT_Commission_OC * S_CGT_Block_V_1)
+                            (S_CGT_Commission_D * S_CGT_Block_MCMC_1)+
+                            (S_CGT_Commission_G * S_CGT_Block_MCMC_1)+
+                            (S_CGT_Commission_V * S_CGT_Block_MCMC_1)+
+                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_1)+
+                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_1)
                         );
                     }
                     function tactic_gross_SC_row_2(){
@@ -343,18 +343,18 @@ function tactic_gross_margin_ott_ctv_p(){
 
                         CGT_Block_SC_2 =
                             floorOrCeil(
-                                (S_CGT_Commission_D * S_CGT_Block_V_2)+
-                                (S_CGT_Commission_G * S_CGT_Block_V_2)+
-                                (S_CGT_Commission_V * S_CGT_Block_V_2)+
-                                (S_CGT_Commission_VG * S_CGT_Block_V_2)+
-                                (S_CGT_Commission_OC * S_CGT_Block_V_2)
+                                (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
+                                (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
+                                (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
+                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_2)+
+                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_2)
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D * S_CGT_Block_V_2)+
-                            (S_CGT_Commission_G * S_CGT_Block_V_2)+
-                            (S_CGT_Commission_V * S_CGT_Block_V_2)+
-                            (S_CGT_Commission_VG * S_CGT_Block_V_2)+
-                            (S_CGT_Commission_OC * S_CGT_Block_V_2)
+                            (S_CGT_Commission_D * S_CGT_Block_MCMC_2)+
+                            (S_CGT_Commission_G * S_CGT_Block_MCMC_2)+
+                            (S_CGT_Commission_V * S_CGT_Block_MCMC_2)+
+                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_2)+
+                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_2)
                         );
                     }
                     function tactic_gross_SC_row_3(){
@@ -371,18 +371,18 @@ function tactic_gross_margin_ott_ctv_p(){
 
                         CGT_Block_SC_3 =
                             floorOrCeil(
-                            ((S_CGT_Commission_D * S_CGT_Block_V_3)+
-                                (S_CGT_Commission_G *  S_CGT_Block_V_3)+
-                                (S_CGT_Commission_V *  S_CGT_Block_V_3)+
-                                (S_CGT_Commission_VG * S_CGT_Block_V_3)+
-                                (S_CGT_Commission_OC * S_CGT_Block_V_3) )
+                            ((S_CGT_Commission_D * S_CGT_Block_MCMC_3)+
+                                (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
+                                (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
+                                (S_CGT_Commission_VG * S_CGT_Block_MCMC_3)+
+                                (S_CGT_Commission_OC * S_CGT_Block_MCMC_3) )
                             );
                         return floorOrCeil(
-                            (S_CGT_Commission_D *  S_CGT_Block_V_3)+
-                            (S_CGT_Commission_G *  S_CGT_Block_V_3)+
-                            (S_CGT_Commission_V *  S_CGT_Block_V_3)+
-                            (S_CGT_Commission_VG * S_CGT_Block_V_3)+
-                            (S_CGT_Commission_OC * S_CGT_Block_V_3)
+                            (S_CGT_Commission_D *  S_CGT_Block_MCMC_3)+
+                            (S_CGT_Commission_G *  S_CGT_Block_MCMC_3)+
+                            (S_CGT_Commission_V *  S_CGT_Block_MCMC_3)+
+                            (S_CGT_Commission_VG * S_CGT_Block_MCMC_3)+
+                            (S_CGT_Commission_OC * S_CGT_Block_MCMC_3)
                         );
                     }
 

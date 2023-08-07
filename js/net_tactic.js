@@ -11,13 +11,13 @@
                     "CNT_Commission_D","CNT_Commission_G","CNT_Commission_V","CNT_Commission_VG","CNT_Commission_OC"
                 ];
 
-CNT_BW_Display=50; CNT_BW_Geofencing=10; CNT_BW_Video=0; CNT_BW_Video_Geofencing=0;   CNT_BW_OTT_CTV=40;
-CNT_RR_Display=12;   CNT_RR_Geofencing=15;   CNT_RR_Video=22;   CNT_RR_Video_Geofencing=26;     CNT_RR_OTT_CTV=33;
-CNT_MC_Display=4.25; CNT_MC_Geofencing=5;    CNT_MC_Video=12.5; CNT_MC_Video_Geofencing=13.50;  CNT_MC_OTT_CTV=17;
-CNT_M_Display=7.75;  CNT_M_Geofencing=10;    CNT_M_Video =9.50; CNT_M_Video_Geofencing=12.50;   CNT_M_OTT_CTV=16;
+CNT_BW_Display=65; CNT_BW_Geofencing=20;     CNT_BW_Video=5;    CNT_BW_Video_Geofencing=5;   CNT_BW_OTT_CTV=40;
+CNT_RR_Display=14;   CNT_RR_Geofencing=15;   CNT_RR_Video=22;   CNT_RR_Video_Geofencing=26;     CNT_RR_OTT_CTV=35;
+CNT_MC_Display=4.25; CNT_MC_Geofencing=5;    CNT_MC_Video=12.5; CNT_MC_Video_Geofencing=13.50;  CNT_MC_OTT_CTV=18;
+CNT_M_Display=9.75;  CNT_M_Geofencing=10;    CNT_M_Video =9.50; CNT_M_Video_Geofencing=12.50;   CNT_M_OTT_CTV=17;
 
 //  commission %:
-CNT_Commission_D=10;    CNT_Commission_G=15;    CNT_Commission_V=0;    CNT_Commission_VG=0;    CNT_Commission_OC=0;
+CNT_Commission_D=7;    CNT_Commission_G=7;    CNT_Commission_V=4;    CNT_Commission_VG=4;    CNT_Commission_OC=4;
 
 CNT_Block_V_1=10000; let CNT_Block_MCMC_1=0;  let CNT_Block_SC_1=0;    let CNT_Block_MC_1=0;    let CNT_Block_SNR_1=0;
 CNT_Block_V_2=30000; let CNT_Block_MCMC_2=0;  let CNT_Block_SC_2=0;    let CNT_Block_MC_2=0;    let CNT_Block_SNR_2=0;
@@ -569,22 +569,98 @@ function tactic_net_margin_ott_ctv_p(){
                         if(current_id == "CNT_RR_Display" || current_id == "CNT_MC_Display"){
                             // get NET - Display - Margin and Margin Percentage
                             $("#CNT_M_Display").val("$" + tactic_net_margin_display()+" ("+tactic_net_margin_display_p()+"%)");
+
+                            $("#CNT_Block_MCMC_1").text("$" + tactic_net_MCMC_row_1());
+                            $("#CNT_Block_MC_1").text("$" + tactic_net_MC_row_1().toFixed(2));
+                            $("#CNT_Block_SC_1").text("$" + tactic_net_SC_row_1().toFixed(2));
+                            $("#CNT_Block_SNR_1").text("$" + tactic_net_SNR_row_1().toFixed(2));
+
+                            $("#CNT_Block_MCMC_2").text("$" + tactic_net_MCMC_row_2().toFixed(2));
+                            $("#CNT_Block_MC_2").text("$" + tactic_net_MC_row_2().toFixed(2));
+                            $("#CNT_Block_SC_2").text("$" + tactic_net_SC_row_2().toFixed(2));
+                            $("#CNT_Block_SNR_2").text("$" + tactic_net_SNR_row_2().toFixed(2));
+
+                            $("#CNT_Block_MCMC_3").text("$" + tactic_net_MCMC_row_3().toFixed(2));
+                            $("#CNT_Block_MC_3").text("$" + tactic_net_MC_row_3().toFixed(2));
+                            $("#CNT_Block_SC_3").text("$" + tactic_net_SC_row_3().toFixed(2));
+                            $("#CNT_Block_SNR_3").text("$" + tactic_net_SNR_row_3().toFixed(2));
+
                         }
                         if(current_id=="CNT_RR_Geofencing" || current_id == "CNT_MC_Geofencing"){
                             // get NET - Geofencing - Margin and Margin Percentage
                             $("#CNT_M_Geofencing").val("$" + tactic_net_margin_geofencing()+ " ("+tactic_net_margin_geofencing_p()+"%)");
+
+                            $("#CNT_Block_MCMC_1").text("$" + tactic_net_MCMC_row_1());
+                            $("#CNT_Block_MC_1").text("$" + tactic_net_MC_row_1().toFixed(2));
+                            $("#CNT_Block_SC_1").text("$" + tactic_net_SC_row_1().toFixed(2));
+                            $("#CNT_Block_SNR_1").text("$" + tactic_net_SNR_row_1().toFixed(2));
+
+                            $("#CNT_Block_MCMC_2").text("$" + tactic_net_MCMC_row_2().toFixed(2));
+                            $("#CNT_Block_MC_2").text("$" + tactic_net_MC_row_2().toFixed(2));
+                            $("#CNT_Block_SC_2").text("$" + tactic_net_SC_row_2().toFixed(2));
+                            $("#CNT_Block_SNR_2").text("$" + tactic_net_SNR_row_2().toFixed(2));
+
+                            $("#CNT_Block_MCMC_3").text("$" + tactic_net_MCMC_row_3().toFixed(2));
+                            $("#CNT_Block_MC_3").text("$" + tactic_net_MC_row_3().toFixed(2));
+                            $("#CNT_Block_SC_3").text("$" + tactic_net_SC_row_3().toFixed(2));
+                            $("#CNT_Block_SNR_3").text("$" + tactic_net_SNR_row_3().toFixed(2));
                         }
                         if(current_id=="CNT_RR_Video" || current_id == "CNT_MC_Video"){
                             // get NET - Video - Margin and Margin Percentage
                             $("#CNT_M_Video").val("$" + tactic_net_margin_video()+ " ("+tactic_net_margin_video_p()+"%)");
+
+                            $("#CNT_Block_MCMC_1").text("$" + tactic_net_MCMC_row_1());
+                            $("#CNT_Block_MC_1").text("$" + tactic_net_MC_row_1().toFixed(2));
+                            $("#CNT_Block_SC_1").text("$" + tactic_net_SC_row_1().toFixed(2));
+                            $("#CNT_Block_SNR_1").text("$" + tactic_net_SNR_row_1().toFixed(2));
+
+                            $("#CNT_Block_MCMC_2").text("$" + tactic_net_MCMC_row_2().toFixed(2));
+                            $("#CNT_Block_MC_2").text("$" + tactic_net_MC_row_2().toFixed(2));
+                            $("#CNT_Block_SC_2").text("$" + tactic_net_SC_row_2().toFixed(2));
+                            $("#CNT_Block_SNR_2").text("$" + tactic_net_SNR_row_2().toFixed(2));
+
+                            $("#CNT_Block_MCMC_3").text("$" + tactic_net_MCMC_row_3().toFixed(2));
+                            $("#CNT_Block_MC_3").text("$" + tactic_net_MC_row_3().toFixed(2));
+                            $("#CNT_Block_SC_3").text("$" + tactic_net_SC_row_3().toFixed(2));
+                            $("#CNT_Block_SNR_3").text("$" + tactic_net_SNR_row_3().toFixed(2));
                         }
                         if(current_id=="CNT_RR_Video_Geofencing" || current_id == "CNT_MC_Video_Geofencing"){
                             // get NET - Video Geofencing - Margin and Margin Percentage
                             $("#CNT_M_Video_Geofencing").val("$" + tactic_net_margin_video_geofencing()+ " ("+tactic_net_margin_video_geofencing_p()+"%)");
+
+                            $("#CNT_Block_MCMC_1").text("$" + tactic_net_MCMC_row_1());
+                            $("#CNT_Block_MC_1").text("$" + tactic_net_MC_row_1().toFixed(2));
+                            $("#CNT_Block_SC_1").text("$" + tactic_net_SC_row_1().toFixed(2));
+                            $("#CNT_Block_SNR_1").text("$" + tactic_net_SNR_row_1().toFixed(2));
+
+                            $("#CNT_Block_MCMC_2").text("$" + tactic_net_MCMC_row_2().toFixed(2));
+                            $("#CNT_Block_MC_2").text("$" + tactic_net_MC_row_2().toFixed(2));
+                            $("#CNT_Block_SC_2").text("$" + tactic_net_SC_row_2().toFixed(2));
+                            $("#CNT_Block_SNR_2").text("$" + tactic_net_SNR_row_2().toFixed(2));
+
+                            $("#CNT_Block_MCMC_3").text("$" + tactic_net_MCMC_row_3().toFixed(2));
+                            $("#CNT_Block_MC_3").text("$" + tactic_net_MC_row_3().toFixed(2));
+                            $("#CNT_Block_SC_3").text("$" + tactic_net_SC_row_3().toFixed(2));
+                            $("#CNT_Block_SNR_3").text("$" + tactic_net_SNR_row_3().toFixed(2));
                         }
                         if(current_id=="CNT_RR_OTT_CTV" || current_id == "CNT_MC_OTT_CTV"){
                             // get NET - Video Geofencing - Margin and Margin Percentage
                             $("#CNT_M_OTT_CTV").val("$" + tactic_net_margin_ott_ctv()+ " ("+tactic_net_margin_ott_ctv_p()+"%)");
+
+                            $("#CNT_Block_MCMC_1").text("$" + tactic_net_MCMC_row_1());
+                            $("#CNT_Block_MC_1").text("$" + tactic_net_MC_row_1().toFixed(2));
+                            $("#CNT_Block_SC_1").text("$" + tactic_net_SC_row_1().toFixed(2));
+                            $("#CNT_Block_SNR_1").text("$" + tactic_net_SNR_row_1().toFixed(2));
+
+                            $("#CNT_Block_MCMC_2").text("$" + tactic_net_MCMC_row_2().toFixed(2));
+                            $("#CNT_Block_MC_2").text("$" + tactic_net_MC_row_2().toFixed(2));
+                            $("#CNT_Block_SC_2").text("$" + tactic_net_SC_row_2().toFixed(2));
+                            $("#CNT_Block_SNR_2").text("$" + tactic_net_SNR_row_2().toFixed(2));
+
+                            $("#CNT_Block_MCMC_3").text("$" + tactic_net_MCMC_row_3().toFixed(2));
+                            $("#CNT_Block_MC_3").text("$" + tactic_net_MC_row_3().toFixed(2));
+                            $("#CNT_Block_SC_3").text("$" + tactic_net_SC_row_3().toFixed(2));
+                            $("#CNT_Block_SNR_3").text("$" + tactic_net_SNR_row_3().toFixed(2));
                         }
 
                         if(
